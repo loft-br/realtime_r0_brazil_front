@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react';
 import { area, curveMonotoneX } from 'd3-shape';
 import { ScatterPlot } from '@nivo/scatterplot';
-import { Typography } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 
 const commonProps = {
-  width: 900,
-  height: 500,
-  margin: { top: 24, right: 24, bottom: 80, left: 80 },
-  nodeSize: 15,
+  width: 300,
+  height: 200,
+  margin: { top: 10, right: 10, bottom: 25, left: 20 },
+  nodeSize: 5,
   blendMode: 'multiply',
   yScale: {
     type: 'linear',
@@ -32,7 +32,6 @@ const commonProps = {
     tickRotation: 0,
     format: (d) => d,
   },
-  // data: sampleData,
   legends: [
     {
       anchor: 'bottom-left',
@@ -73,10 +72,19 @@ const RiskScatterPlot = ({ info }) => (
 
 const createRiskList = (data) =>
   Object.keys(data).map((key) => (
-    <Fragment key={key}>
-      <Typography variant="h3">{key}</Typography>
+    <Grid
+      alignItems="center"
+      justifyContent="center"
+      container
+      direction="column"
+      item
+      key={key}
+      lg={3}
+      xs
+    >
+      <Typography variant="h5">{key}</Typography>
       <RiskScatterPlot info={{ key, data: data[key] }} />
-    </Fragment>
+    </Grid>
   ));
 
 export { RiskScatterPlot, createRiskList };
