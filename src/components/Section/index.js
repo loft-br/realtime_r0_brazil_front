@@ -7,7 +7,7 @@ const Section = ({ children, title }) => {
 
   return (
     <div className={classes.root}>
-      <Typography className={classes.title} variant="body1">
+      <Typography className={classes.title} variant="h4">
         {title}
       </Typography>
       {children}
