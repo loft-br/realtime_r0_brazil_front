@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import { createRiskList, RiskBar } from '../../components/charts/';
+import Section from '../../components/Section';
 
 import * as mock from '../../mock/charts.json';
 
@@ -26,25 +27,31 @@ const barChartDataFormatted = Object.keys(listDataFormatted).map(
 );
 
 const Home = () => (
-  <Grid
-    container
-    direction="row"
-    justify="flex-start"
-    alignItems="center"
-    spacing={4}
-  >
-    {createRiskList(listDataFormatted)}
-    <div
-      style={{
-        display: 'flex',
-        width: '100%',
-        position: 'relative',
-        height: 400,
-      }}
-    >
-      <RiskBar data={barChartDataFormatted} />
-    </div>
-  </Grid>
+  <>
+    <Section title="Lorem ipsum">
+      <Grid
+        container
+        direction="row"
+        justify="flex-start"
+        alignItems="center"
+        spacing={4}
+      >
+        {createRiskList(listDataFormatted)}
+      </Grid>
+    </Section>
+    <Section title="Lorem ipsum">
+      <div
+        style={{
+          display: 'flex',
+          width: '100%',
+          position: 'relative',
+          height: 400,
+        }}
+      >
+        <RiskBar data={barChartDataFormatted} />
+      </div>
+    </Section>
+  </>
 );
 
 export default Home;
