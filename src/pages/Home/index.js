@@ -28,7 +28,10 @@ const barChartDataFormatted = Object.keys(listDataFormatted).map(
 
 const Home = () => (
   <>
-    <Section title="Lorem ipsum">
+    <Section
+      title="Observando os resultados"
+      description="Usamos o mesmo padrão de visualização adotado pelo Kevin. Nos gráficos, cada ponto é a estimativa de $R_t$ para o dia, e a área cinzenta indica o intervalo crível de 90% de probabilidade. Deixamos $R = 1$ em evidência, já que quando $R_t &lt; 1$ indica que a epidemia está sob controle."
+    >
       <Grid
         container
         direction="row"
@@ -39,7 +42,10 @@ const Home = () => (
         {createRiskList(listDataFormatted)}
       </Grid>
     </Section>
-    <Section title="Lorem ipsum">
+    <Section
+      title="Observando os resultados: comparação entre estados"
+      description="Para fazer uma comparação entre estados, mostramos a última estimativa de $R_t$ de cada estado no gráfico de barras a seguir, com a incerteza associada. Os gráficos estão ordenados do melhor para o pior usando a estimativa mais provável do modelo."
+    >
       <div
         style={{
           display: 'flex',

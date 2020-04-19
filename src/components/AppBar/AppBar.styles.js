@@ -15,6 +15,11 @@ const useStyles = makeStyles((theme) => ({
       boxShadow: 'none',
     },
   },
+  link: {
+    '&:not(:last-child)': {
+      marginRight: theme.spacing(3),
+    },
+  },
   menuButton: {
     marginRight: theme.spacing(2),
   },
