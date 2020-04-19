@@ -36,9 +36,26 @@ const AppBar = () => {
               </g>
               <title>Loft</title>
             </svg>
-            <Button color="inherit">About</Button>
-            <Button color="inherit">Medium 1</Button>
-            <Button color="inherit">Medium 2</Button>
+            <Button
+              className={classes.link}
+              color="inherit"
+              component="a"
+              href="https://www.loft.com.br/about-us"
+              target="_blank"
+              title="Sobre a loft"
+            >
+              Sobre
+            </Button>
+            <Button
+              className={classes.link}
+              color="inherit"
+              component="a"
+              href="https://medium.com/@flohagenbuch/vemos-luz-no-fim-do-t%C3%BAnel-covid-19-96663d3cf1ed"
+              target="_blank"
+              title="Vemos luz no fim do túnel COVID-19?"
+            >
+              Artigo
+            </Button>
           </Toolbar>
         </Container>
       </MuiAppBar>
