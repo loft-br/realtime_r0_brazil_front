@@ -1,10 +1,10 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
-import { createRiskList } from '../../components/charts/';
+import { createRiskList, RiskBar } from '../../components/charts/';
 
 import * as mock from '../../mock/charts.json';
 
-const dataFormatted = mock?.data?.reduce((current, next) => {
+const listDataFormatted = mock?.data?.reduce((current, next) => {
   const [id, _x, y, low, high] = next;
   const index = (current[id] || []).length;
 
@@ -12,6 +12,7 @@ const dataFormatted = mock?.data?.reduce((current, next) => {
     ...current,
     [id]: (current[id] || []).concat({
       id,
+      state: id,
       x: index,
       y,
       low,
@@ -19,6 +20,10 @@ const dataFormatted = mock?.data?.reduce((current, next) => {
     }),
   };
 }, {});
+
+const barChartDataFormatted = Object.keys(listDataFormatted).map(
+  (k) => listDataFormatted[k][listDataFormatted[k].length - 1]
+);
 
 const Home = () => (
   <Grid
@@ -28,7 +33,8 @@ const Home = () => (
     alignItems="center"
     spacing={4}
   >
-    {createRiskList(dataFormatted)}
+    {createRiskList(listDataFormatted)}
+    <RiskBar data={barChartDataFormatted} width="900" />
   </Grid>
 );
 
