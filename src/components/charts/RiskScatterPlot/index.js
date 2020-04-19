@@ -1,7 +1,9 @@
-import React, { Fragment } from 'react';
-import { area, curveMonotoneX } from 'd3-shape';
+import React from 'react';
+
 import { ScatterPlot } from '@nivo/scatterplot';
 import { Grid, Typography } from '@material-ui/core';
+
+import AreaLayer from '../AreaLayer';
 
 const commonProps = {
   width: 300,
@@ -46,45 +48,31 @@ const commonProps = {
   colors: '#ff774a',
 };
 
-const AreaLayer = ({ nodes, xScale, yScale }) => {
-  const areaGenerator = area()
-    .x((d) => xScale(d.data.x))
-    .y0((d) => yScale(d.data.low))
-    .y1((d) => yScale(d.data.high))
-    .curve(curveMonotoneX);
-
-  return <path d={areaGenerator(nodes)} fill="rgba(255, 119, 74, 0.2)" />;
-};
-
-const RiskScatterPlot = ({ info }) => (
+const RiskScatterPlot = ({ data }) => (
   <ScatterPlot
     {...commonProps}
-    data={[
-      {
-        id: info.key,
-        data: info.data,
-      },
-    ]}
+    data={data}
     legends={[]}
     layers={['grid', 'axes', AreaLayer, 'nodes', 'markers', 'mesh', 'legends']}
   />
 );
 
 const createRiskList = (data) =>
-  Object.keys(data).map((key) => (
+  Object.keys(data).map((id) => (
     <Grid
       alignItems="center"
-      justifyContent="center"
+      justify="center"
       container
       direction="column"
       item
-      key={key}
+      key={id}
       lg={3}
       xs
     >
-      <Typography variant="h5">{key}</Typography>
-      <RiskScatterPlot info={{ key, data: data[key] }} />
+      <Typography variant="h5">{id}</Typography>
+      <RiskScatterPlot data={[{ id, data: data[id] }]} />
     </Grid>
   ));
 
-export { RiskScatterPlot, createRiskList };
+export default RiskScatterPlot;
+export { createRiskList };
