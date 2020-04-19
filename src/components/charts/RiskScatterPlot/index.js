@@ -56,7 +56,7 @@ const RiskScatterPlot = ({ data }) => (
     {...commonProps}
     data={data}
     legends={[]}
-    layers={['grid', 'axes', AreaLayer, 'nodes', 'markers', 'mesh', 'legends']}
+    layers={['grid', 'axes', AreaLayer, 'nodes']}
   />
 );
 

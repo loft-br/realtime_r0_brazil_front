@@ -1,5 +1,5 @@
 import React from 'react';
-import { area, curveMonotoneX } from 'd3-shape';
+import { area, curveMonotoneX, line } from 'd3-shape';
 
 const AreaLayer = ({ nodes, xScale, yScale }) => {
   const areaGenerator = area()

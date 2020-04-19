@@ -6,7 +6,7 @@ import Section from '../../components/Section';
 import * as mock from '../../mock/charts.json';
 
 const listDataFormatted = mock?.data?.reduce((current, next) => {
-  const [id, _x, y, low, high] = next;
+  const [id, , y, low, high] = next;
   const index = (current[id] || []).length;
 
   return {
