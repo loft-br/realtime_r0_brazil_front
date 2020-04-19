@@ -1,6 +1,8 @@
 import React from 'react';
-import { Container, Typography } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 import AppBar from '../AppBar';
+import Footer from '../Footer';
+import Typography from '../Typography';
 import useStyles from './Layout.styles';
 
 const Layout = ({ children }) => {
@@ -11,13 +13,12 @@ const Layout = ({ children }) => {
       <AppBar />
       <Container className={classes.container} maxWidth="lg" component="main">
         <Typography variant="h2" component="h2">
-          Brazil State Covid-19 Charts
+          Gráficos do Covid-19 nos estados brasileiros
         </Typography>
-        <Typography variant="h5">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </Typography>
+        <Typography variant="h5">Atualizado em 19 de Abril de 2020.</Typography>
         {children}
       </Container>
+      <Footer />
     </>
   );
 };
