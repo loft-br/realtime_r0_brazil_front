@@ -34,7 +34,16 @@ const Home = () => (
     spacing={4}
   >
     {createRiskList(listDataFormatted)}
-    <RiskBar data={barChartDataFormatted} width="900" />
+    <div
+      style={{
+        display: 'flex',
+        width: '100%',
+        position: 'relative',
+        height: 400,
+      }}
+    >
+      <RiskBar data={barChartDataFormatted} />
+    </div>
   </Grid>
 );
 

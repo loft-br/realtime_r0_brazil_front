@@ -1,11 +1,9 @@
 import React from 'react';
-import { Bar } from '@nivo/bar';
-// import AreaLayer from '../AreaLayer';
+import { ResponsiveBar } from '@nivo/bar';
+import AreaLayer from '../AreaLayer';
 
 const RiskBar = ({ data, width }) => (
-  <Bar
-    width={width || 500}
-    height={400}
+  <ResponsiveBar
     data={data}
     keys={['y']}
     maxValue={4}
@@ -20,6 +18,9 @@ const RiskBar = ({ data, width }) => (
     enableLabel={false}
     colors={['#ff774a']}
     layers={['grid', 'axes', 'bars' /* AreaLayer */, , 'markers', 'legends']}
+    animate={true}
+    motionStiffness={90}
+    motionDamping={15}
   />
 );
 
