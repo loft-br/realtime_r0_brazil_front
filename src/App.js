@@ -1,13 +1,13 @@
 import React from 'react';
-import { Container } from '@material-ui/core';
 
 import Routes from './routes';
+import Layout from './components/Layout';
 
 function App() {
   return (
-    <Container>
+    <Layout>
       <Routes />
-    </Container>
+    </Layout>
   );
 }
 
