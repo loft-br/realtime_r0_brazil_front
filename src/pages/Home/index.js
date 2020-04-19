@@ -1,4 +1,5 @@
 import React from 'react';
+import { Grid } from '@material-ui/core';
 import { createRiskList } from '../../components/charts/';
 
 import * as mock from '../../mock/charts.json';
@@ -19,6 +20,16 @@ const dataFormatted = mock?.data?.reduce((current, next) => {
   };
 }, {});
 
-const Home = () => <>{createRiskList(dataFormatted)}</>;
+const Home = () => (
+  <Grid
+    container
+    direction="row"
+    justify="flex-start"
+    alignItems="center"
+    spacing={4}
+  >
+    {createRiskList(dataFormatted)}
+  </Grid>
+);
 
 export default Home;

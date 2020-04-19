@@ -1,19 +1,12 @@
 import React from 'react';
-import { Container, Grid } from '@material-ui/core';
-import Home from './pages/Home';
+import { Container } from '@material-ui/core';
+
+import Routes from './routes';
 
 function App() {
   return (
     <Container>
-      <Grid
-        container
-        direction="row"
-        justify="flex-start"
-        alignItems="center"
-        spacing={4}
-      >
-        <Home />
-      </Grid>
+      <Routes />
     </Container>
   );
 }
