@@ -79,7 +79,7 @@ const Home = () => {
   return (
     <>
       <Section
-        title="Observando os resultados: comparação entre estados"
+        title="Comparação entre estados"
         description="Para fazer uma comparação entre estados, mostramos a última estimativa de $R_t$ de cada estado no gráfico de barras a seguir, com a incerteza associada. Os gráficos estão ordenados do melhor para o pior usando a estimativa mais provável do modelo."
       >
         <div
@@ -96,8 +96,8 @@ const Home = () => {
         </div>
       </Section>
       <Section
-        title="Observando os resultados"
-        description="Usamos o mesmo padrão de visualização adotado pelo Kevin. Nos gráficos, cada ponto é a estimativa de $R_t$ para o dia, e a área cinzenta indica o intervalo crível de 90% de probabilidade. Deixamos $R = 1$ em evidência, já que quando $R_t &lt; 1$ indica que a epidemia está sob controle."
+        title="<em>R<sub>t</sub></em> real-state por UF"
+        description="Nosso modelo produz uma estimativa de <em>R<sub>t</sub></em> para cada um dos estados brasileiros, com um intervalo crível de 90% de probabilidade. Nos gráficos a seguir, mostramos a estimativa para cada estado. No eixo vertical temos a estimativa de <em>R<sub>t</sub></em> ao longo do tempo. Os pontos são as estimativas, enquanto a sombra significa todos os possíveis valores de <em>R<sub>t</sub></em> em determinada data (intervalo crível). Somente se o <em>R<sub>t</sub></em> for menor do que 1, a epidemia irá diminuir de tamanho até ser eliminada."
       >
         <Grid
           container

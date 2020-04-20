@@ -13,7 +13,10 @@ const Layout = ({ children }) => {
       <AppBar />
       <Container className={classes.container} maxWidth="lg" component="main">
         <Typography variant="h2" component="h2">
-          Rt do COVID-19 por estado no Brasil
+          <em>
+            R<sub>t</sub>
+          </em>{' '}
+          do COVID-19 por estado no Brasil
         </Typography>
         <Typography variant="h6">
           Atualizado diariamente.
