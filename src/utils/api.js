@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://cors-anywhere.herokuapp.com/https://realtime-r0-covid-brazil.herokuapp.com',
+  baseURL: 'https://realtime-r0-covid-brazil.herokuapp.com',
   headers: {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE" ,
