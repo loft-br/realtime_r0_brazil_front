@@ -7,8 +7,14 @@ const useStyles = makeStyles((theme) => ({
     borderTop: `1px solid ${theme.palette.grey[500]}`,
     padding: theme.spacing(6, 0),
   },
+  headline: {
+    display: 'flex',
+    flex: 1,
+    alignItems: 'center',
+  },
   logo: {
     width: 50,
+    marginRight: 'auto',
   },
   section: {
     marginBottom: theme.spacing(5),
