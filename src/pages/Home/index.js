@@ -87,7 +87,9 @@ const Home = () => {
             display: 'flex',
             width: '100%',
             position: 'relative',
-            height: 400,
+            height: 500,
+            overflowX: 'auto',
+            overflowY: 'hidden',
           }}
         >
           <Line data={barChartData} />
