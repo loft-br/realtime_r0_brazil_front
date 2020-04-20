@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
     flexDirection: 'column',
     marginTop: theme.spacing(8),
-    marginBottom: theme.spacing(15),
+    marginBottom: theme.spacing(8),
   },
 
   title: {
