@@ -106,7 +106,7 @@ const Line = ({ data, width }) => {
         modifiers: [['darker', 0.3]],
       }}
       pointLabelYOffset={-20}
-      enableGridX={false}
+      enableGridX
       colors={['#ff774a', '#19857b']}
       xScale={{
         type: 'linear',
@@ -115,7 +115,7 @@ const Line = ({ data, width }) => {
         type: 'linear',
         stacked: false,
         min: 0,
-        max: 2,
+        max: 3.5,
       }}
       enableArea={true}
       areaOpacity={0.0}
@@ -123,6 +123,7 @@ const Line = ({ data, width }) => {
       useMesh={true}
       crosshairType="cross"
       lineWidth={0}
+      axisBottom={null}
     />
   );
 };
