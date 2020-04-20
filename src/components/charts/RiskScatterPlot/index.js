@@ -5,10 +5,12 @@ import { Grid, Typography } from '@material-ui/core';
 
 import { commonProps } from './RiskScatterPlot.styles';
 
+import { BRAZIL_STATES, getLastRtValue } from '../../../utils';
+
 import AreaLayer from '../AreaLayer';
 import LineLayer from '../LineLayer';
 
-import { BRAZIL_STATES, getLastRtValue } from '../../../utils';
+import useStyles from './RiskScatterPlot.styles';
 
 const RiskScatterPlot = ({ data }) => (
   <ScatterPlot
@@ -19,37 +21,36 @@ const RiskScatterPlot = ({ data }) => (
   />
 );
 
-const createRiskList = (data) =>
-  Object.keys(data).map((id) => (
-    <Grid
-      container
-      alignItems="center"
-      direction="column"
-      item
-      key={id}
-      lg={3}
-      xs
-    >
-      <header
-        style={{
-          display: 'flex',
-          flex: 1,
-          width: '100%',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}
-      >
-        <Typography variant="h6">{BRAZIL_STATES[id]}</Typography>
-        <Typography
-          variant="h6"
-          color={getLastRtValue(data, id) < 1 ? 'secondary' : 'error'}
+const RiskList = ({ data }) => {
+  const classes = useStyles();
+
+  return (
+    <>
+      {Object.keys(data).map((id) => (
+        <Grid
+          container
+          alignItems="center"
+          direction="column"
+          item
+          key={id}
+          lg={3}
+          xs
         >
-          <strong>{getLastRtValue(data, id)}</strong>
-        </Typography>
-      </header>
-      <RiskScatterPlot data={[{ id, data: data[id] }]} />
-    </Grid>
-  ));
+          <header className={classes.header}>
+            <Typography variant="h6">{BRAZIL_STATES[id]}</Typography>
+            <Typography
+              variant="h6"
+              color={getLastRtValue(data, id) < 1 ? 'secondary' : 'error'}
+            >
+              <strong>{getLastRtValue(data, id)}</strong>
+            </Typography>
+          </header>
+          <RiskScatterPlot data={[{ id, data: data[id] }]} />
+        </Grid>
+      ))}
+    </>
+  );
+};
 
 export default RiskScatterPlot;
-export { createRiskList };
+export { RiskList };

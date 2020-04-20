@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { CircularProgress, Grid } from '@material-ui/core';
 
-import { createRiskList, RiskBar, Line } from '../../components/charts/';
+import { RiskList, RiskBar, Line } from '../../components/charts/';
 import Typography from '../../components/Typography';
 import Section from '../../components/Section';
 import { DataEntity } from '../../services';
@@ -84,7 +84,7 @@ const Home = () => {
           alignItems="center"
           spacing={4}
         >
-          {createRiskList(listData)}
+          <RiskList data={listData} />
         </Grid>
       </Section>
     </>
