@@ -3,7 +3,7 @@ import { ResponsiveLine } from '@nivo/line';
 
 const commonProperties = {
   width: 1200,
-  height: 500,
+  // height: 1200,
   margin: { top: 20, right: 20, bottom: 60, left: 80 },
   animate: true,
   enableSlices: 'x',
@@ -25,19 +25,32 @@ const compare = (a, b) => {
 };
 
 const CustomSymbol = ({ size, color, borderWidth, borderColor, ...rest }) => {
+  console.log(rest);
+  const height = (rest.datum.high - rest.datum.low) * 100;
+
   return (
     <g>
+      <rect
+        width={8}
+        rx="5"
+        x="-4"
+        height={height}
+        y={(-(rest.datum.high - rest.datum.low) * 100) / 2}
+        opacity="0.2"
+        fill="#ff774a"
+      />
+      <div>{rest.datum.id}</div>
       <circle
         fill="#fff"
         r={size / 2}
         strokeWidth={borderWidth}
-        stroke={rest.datum.y > 1 ? '#E17272' : '#19857b'}
+        stroke={rest.datum.y > 1 ? '#ff774a' : '#19857b'}
       />
       <circle
         r={size / 5}
         strokeWidth={borderWidth}
-        stroke={rest.datum.y > 1 ? '#E17272' : '#19857b'}
-        fill={rest.datum.y > 1 ? '#E17272' : '#19857b'}
+        stroke={rest.datum.y > 1 ? '#ff774a' : '#19857b'}
+        fill={rest.datum.y > 1 ? '#ff774a' : '#19857b'}
         fillOpacity={0.35}
       />
     </g>
@@ -55,25 +68,23 @@ const Line = ({ data, width }) => {
   orderedData.forEach((item, index) => {
     if (item.y < 1) {
       mapper.negative[index] = {
+        ...item,
         x: index,
-        y: item.y,
-        id: item.id,
       };
       mapper.positive[index] = {
+        ...item,
         x: index,
         y: null,
-        id: item.id,
       };
     } else {
       mapper.positive[index] = {
+        ...item,
         x: index,
-        y: item.y,
-        id: item.id,
       };
       mapper.negative[index] = {
+        ...item,
         x: index,
         y: null,
-        id: item.id,
       };
     }
   });
@@ -88,8 +99,6 @@ const Line = ({ data, width }) => {
       data: mapper.negative,
     },
   ];
-
-  console.log({ chartData });
 
   return (
     <ResponsiveLine
@@ -106,8 +115,8 @@ const Line = ({ data, width }) => {
         modifiers: [['darker', 0.3]],
       }}
       pointLabelYOffset={-20}
-      enableGridX
-      colors={['#E17272', '#19857b']}
+      enableGridX={false}
+      colors={['#ff774a', '#19857b']}
       xScale={{
         type: 'linear',
       }}
@@ -115,7 +124,7 @@ const Line = ({ data, width }) => {
         type: 'linear',
         stacked: false,
         min: 0,
-        max: 3.5,
+        max: 4,
       }}
       enableArea={true}
       areaOpacity={0.0}
@@ -123,7 +132,6 @@ const Line = ({ data, width }) => {
       useMesh={true}
       crosshairType="cross"
       lineWidth={0}
-      axisBottom={null}
     />
   );
 };
