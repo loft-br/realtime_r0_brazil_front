@@ -5,7 +5,7 @@ const inicialState = {
   // model_result_state: null,
   // last_date: null,
   data: null,
-  lastUpdateTime: null,
+  lastUpdateTime: '19 de Abril de 2020',
 }
 
 export default (state = inicialState, action) => {
