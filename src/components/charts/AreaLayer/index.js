@@ -8,7 +8,7 @@ const AreaLayer = ({ nodes, xScale, yScale }) => {
     .y1((d) => yScale(d.data.high))
     .curve(curveMonotoneX);
 
-  return <path d={areaGenerator(nodes)} fill="rgba(255, 119, 74, 0.2)" />;
+  return <path d={areaGenerator(nodes)} fill="rgba(200, 200, 200, 0.3)" />;
 };
 
 export default AreaLayer;
