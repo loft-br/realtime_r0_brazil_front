@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
@@ -9,7 +10,7 @@
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/icon.png" />
 
   <meta property="og:title" content="Rt do COVID-19 por estado no Brasil" />
-  <meta property="og:image" content="/icon.png" />
+  <meta property="og:image" content="%PUBLIC_URL%/icon.png" />
   <meta property="og:description"
     content="Nosso modelo produz uma estimativa de Rt para cada um dos estados brasileiros, com um intervalo crível de 90% de probabilidade. Nos gráficos a seguir, mostramos a estimativa para cada estado." />
   <meta property="og:url" content="%PUBLIC_URL%" />
@@ -17,25 +18,22 @@
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   <title>COVID-19 | Loft Data Science</title>
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-164027911-1"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', 'UA-164027911-1');
-    </script>
-  </head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164027911-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-164027911-1');
+  </script>
+</head>
 
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -45,5 +43,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  </body>
+</body>
+
 </html>

@@ -58,7 +58,7 @@ const Home = () => {
     <>
       <Section
         title="O que é o <em>R<sub>t</sub></em>?"
-        description="O <em>R<sub>t</sub></em>, ou número de reprodução efetivo, é o número médio de contágios
+        description="O <em>R<sub>t</sub></em>, ou número de reprodução eficaz, é o número médio de contágios
           causados por cada pessoa infectada em um determinado ponto no tempo,
           levando em consideração mudanças no nosso comportamento (quarentena,
           uso de máscaras, home office, etc). Um <em>R<sub>t</sub></em> de 3–4 infectará
