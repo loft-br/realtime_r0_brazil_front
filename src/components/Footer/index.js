@@ -9,7 +9,7 @@ const Footer = () => {
   const classes = useStyles();
 
   return (
-    <Container className={classes.container} component="footer">
+    <footer className={classes.container}>
       <div className={classes.section}>
         <Typography className={classes.sectionTitle} variant="h5">
           Recursos
@@ -160,7 +160,7 @@ const Footer = () => {
         </g>
         <title>Loft</title>
       </svg>
-    </Container>
+    </footer>
   );
 };
 

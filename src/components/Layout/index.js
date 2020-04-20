@@ -21,8 +21,8 @@ const Layout = ({ children }) => {
           Última atualização: <strong>19 de Abril de 2020</strong>
         </Typography>
         {children}
+        <Footer />
       </Container>
-      <Footer />
     </>
   );
 };
