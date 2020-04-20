@@ -1,5 +1,7 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
+import { useSelector } from 'react-redux';
+
 import AppBar from '../AppBar';
 import Footer from '../Footer';
 import Typography from '../Typography';
@@ -7,6 +9,7 @@ import useStyles from './Layout.styles';
 
 const Layout = ({ children }) => {
   const classes = useStyles();
+  const formattedDate = useSelector(state => state.lastUpdateTime);
 
   return (
     <>
@@ -22,7 +25,7 @@ const Layout = ({ children }) => {
           Atualizado diariamente.
         </Typography>
         <Typography variant="h6">
-          Dados até: <strong>20 de Abril de 2020</strong>
+          Dados até: <strong>{formattedDate}</strong>
         </Typography>
         {children}
         <Footer />

@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { CircularProgress, Grid } from '@material-ui/core';
 
 import { RiskList, RiskBar, Line } from '../../components/charts/';
 import Typography from '../../components/Typography';
 import Section from '../../components/Section';
-import { DataEntity } from '../../services';
 import { formatListData, formatBarChartData } from '../../utils';
 import useStyles from './Home.styles';
-
-const dataApi = new DataEntity();
+import { getModelResults } from '../../store/actions';
 
 const Home = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -23,11 +23,12 @@ const Home = () => {
 
     const getData = async () => {
       try {
-        const response = await dataApi.getModelResultState();
-
-        setListData(formatListData(response));
-        setBarChartData(formatBarChartData(response));
-        setLoading(false);
+        await dispatch(getModelResults())
+          .then((response) => {
+            setListData(formatListData(response));
+            setBarChartData(formatBarChartData(response));
+            setLoading(false);
+          })
       } catch (error) {
         setError(true);
         setLoading(false);
@@ -35,7 +36,7 @@ const Home = () => {
     };
 
     getData();
-  }, []);
+  }, [dispatch]);
 
   if (loading) {
     return (
