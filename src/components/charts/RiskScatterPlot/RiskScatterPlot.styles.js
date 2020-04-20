@@ -5,6 +5,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flex: 1,
     width: '100%',
+    maxWidth: 300,
     justifyContent: 'space-between',
     alignItems: 'center',
   },
