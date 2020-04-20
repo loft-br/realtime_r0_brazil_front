@@ -40,11 +40,11 @@ const AppBar = () => {
               className={classes.link}
               color="inherit"
               component="a"
-              href="https://www.loft.com.br/about-us"
+              href="https://medium.com/@flohagenbuch/vemos-luz-no-fim-do-t%C3%BAnel-covid-19-96663d3cf1ed"
               target="_blank"
-              title="Sobre a loft"
+              title="Vemos luz no fim do túnel COVID-19?"
             >
-              Sobre
+              Metodologia
             </Button>
             <Button
               className={classes.link}
@@ -54,7 +54,17 @@ const AppBar = () => {
               target="_blank"
               title="Vemos luz no fim do túnel COVID-19?"
             >
-              Artigo
+              Perspectivas
+            </Button>
+            <Button
+              className={classes.link}
+              color="inherit"
+              component="a"
+              href="https://www.loft.com.br/about-us"
+              target="_blank"
+              title="Sobre a loft"
+            >
+              Sobre
             </Button>
           </Toolbar>
         </Container>

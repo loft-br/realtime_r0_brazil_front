@@ -1,6 +1,8 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
+import Link from '@material-ui/core/Link';
 
+import Typography from '../Typography';
 import useStyles from './Footer.styles';
 
 const Footer = () => {
@@ -8,6 +10,120 @@ const Footer = () => {
 
   return (
     <Container className={classes.container} component="footer">
+      <div className={classes.section}>
+        <Typography className={classes.sectionTitle} variant="h5">
+          Recursos
+        </Typography>
+        <Typography variant="body1">
+          <Link
+            color="secondary"
+            href="https://docs.google.com/presentation/d/1J0xtMQH0LxN-ZEfnl8I4iooGofEp49fyqKIk69rMf1w/edit#slide=id.g71c335fc92_32_492"
+          >
+            Base Case
+          </Link>{' '}
+          e{' '}
+          <Link
+            color="secondary"
+            href="https://docs.google.com/presentation/d/1OeQuD0zuU5FcOUGWxkidCvFDloHuMa9zs03iTW2QjCM/edit#slide=id.g714b42d86c_6_298"
+          >
+            Action Plan
+          </Link>{' '}
+          da Loft, divulgados para a comunidade
+        </Typography>
+        <Typography variant="body1">
+          <Link
+            color="secondary"
+            href="https://docs.google.com/document/d/1PvR_dI5L_5mhjDWovgIgkkSMtFFHFQ9bRYCY9hx30ZE/edit?ts=5e6a7c6f"
+          >
+            Warzoom
+          </Link>{' '}
+          Loft com todas as políticas internas, atualizado diariamente
+        </Typography>
+        <Typography variant="body1">
+          <Link
+            color="secondary"
+            href="https://docs.google.com/document/d/1c8U-eZSZQwr8m3KifQBndBOv0WlDDJ9aD0VPYATe3cg/edit#heading=h.gkvqnzw9i612"
+          >
+            Reports
+          </Link>{' '}
+          de modelagem do COVID-19 do time de data science da Loft
+        </Typography>
+        <Typography variant="body1">
+          <Link
+            color="secondary"
+            href="https://github.com/gdmarmerola/realtime_r0_brazil"
+          >
+            Repositório no GitHub
+          </Link>{' '}
+          com nossa metodologia de cálculo do Rt
+        </Typography>
+        <Typography variant="body1">
+          <Link
+            color="secondary"
+            href="https://github.com/k-sys/covid-19/blob/master/Realtime%20R0.ipynb"
+          >
+            Notebook
+          </Link>{' '}
+          do Jupyter do Kevin Systrom com sua metodologia para calcular Rt
+        </Typography>
+      </div>
+      <div className={classes.section}>
+        <Typography className={classes.sectionTitle} variant="h5">
+          Limitações conhecidas da metodologia
+        </Typography>
+        <Typography variant="body1">
+          A metodologia consegue lidar com baixos níveis de testagem, já que usa
+          variações entre um dia e outro — mais importa a variação entre os
+          números de casos e não o número absoluto — mas pode ser afetada se
+          tivermos grandes variações na disponibilidade de testes.
+        </Typography>
+        <Typography variant="body1">
+          Existe um atraso entre ter a doença e o teste positivo. Isto não se
+          reflete nesses números. Os valores de Rt reais podem estar atrasados
+          em alguns dias.
+        </Typography>
+        <Typography variant="body1">
+          Tentamos fazer a estimativa de Rt da melhor forma possível. Mesmo que
+          este seja o caso, é impossível fazê-lo com perfeição. Pedimos para que
+          levem isto em consideração.
+        </Typography>
+      </div>
+      <div className={classes.section}>
+        <Typography className={classes.sectionTitle} variant="h5">
+          Créditos
+        </Typography>
+        <Typography variant="body1">
+          Análise por{' '}
+          <Link
+            color="secondary"
+            href="https://www.linkedin.com/in/gdmarmerola/"
+          >
+            Guilherme Marmerola
+          </Link>{' '}
+          e site construído por{' '}
+          <Link
+            color="secondary"
+            href="https://www.linkedin.com/in/thiago-capelo-0156446a/"
+          >
+            Thiago Capelo
+          </Link>
+          ,{' '}
+          <Link color="secondary" href="https://www.linkedin.com/in/kopplin/">
+            Sérgio Kopplin
+          </Link>{' '}
+          e{' '}
+          <Link
+            color="secondary"
+            href="https://www.linkedin.com/in/filipecunha/"
+          >
+            Filipe Cunha
+          </Link>
+        </Typography>
+        <Typography variant="body1">
+          Obrigado a Flora Oliveira, Ricardo Kauffman e Diogo Kpelo por suas
+          contribuições ao projeto.
+        </Typography>
+      </div>
       <svg
         className={classes.logo}
         focusable="false"

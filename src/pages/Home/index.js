@@ -79,20 +79,6 @@ const Home = () => {
   return (
     <>
       <Section
-        title="Observando os resultados"
-        description="Usamos o mesmo padrão de visualização adotado pelo Kevin. Nos gráficos, cada ponto é a estimativa de $R_t$ para o dia, e a área cinzenta indica o intervalo crível de 90% de probabilidade. Deixamos $R = 1$ em evidência, já que quando $R_t &lt; 1$ indica que a epidemia está sob controle."
-      >
-        <Grid
-          container
-          direction="row"
-          justify="flex-start"
-          alignItems="center"
-          spacing={4}
-        >
-          {createRiskList(listData)}
-        </Grid>
-      </Section>
-      <Section
         title="Observando os resultados: comparação entre estados"
         description="Para fazer uma comparação entre estados, mostramos a última estimativa de $R_t$ de cada estado no gráfico de barras a seguir, com a incerteza associada. Os gráficos estão ordenados do melhor para o pior usando a estimativa mais provável do modelo."
       >
@@ -106,6 +92,20 @@ const Home = () => {
         >
           <Line data={barChartData} />
         </div>
+      </Section>
+      <Section
+        title="Observando os resultados"
+        description="Usamos o mesmo padrão de visualização adotado pelo Kevin. Nos gráficos, cada ponto é a estimativa de $R_t$ para o dia, e a área cinzenta indica o intervalo crível de 90% de probabilidade. Deixamos $R = 1$ em evidência, já que quando $R_t &lt; 1$ indica que a epidemia está sob controle."
+      >
+        <Grid
+          container
+          direction="row"
+          justify="flex-start"
+          alignItems="center"
+          spacing={4}
+        >
+          {createRiskList(listData)}
+        </Grid>
       </Section>
     </>
   );
