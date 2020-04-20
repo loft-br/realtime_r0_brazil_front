@@ -53,5 +53,7 @@ export const formatListData = ({ data }) => {
 
 export const formatBarChartData = (data) => {
   const formattedData = formatListData(data);
-  return Object.keys(formattedData).map((k) => data[k][data[k].length - 1]);
+  return Object.keys(formattedData).map(
+    (k) => formattedData[k][formattedData[k].length - 1]
+  );
 };

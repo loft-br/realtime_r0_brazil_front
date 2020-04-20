@@ -42,7 +42,7 @@ const createRiskList = (data) =>
         <Typography variant="h6">{BRAZIL_STATES[id]}</Typography>
         <Typography
           variant="h6"
-          color={getLastRtValue(data, id) >= 1 ? 'secondary' : 'error'}
+          color={getLastRtValue(data, id) < 1 ? 'secondary' : 'error'}
         >
           <strong>{getLastRtValue(data, id)}</strong>
         </Typography>
