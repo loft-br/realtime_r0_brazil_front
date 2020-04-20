@@ -6,7 +6,7 @@ const LineLayer = ({ nodes, xScale, yScale }) => {
     .x((d) => xScale(d.data.x))
     .y((d) => yScale(1));
 
-  return <path stroke="#666" stroke-width="2" d={avgline(nodes)} />;
+  return <path stroke="#666" strokeWidth="2" d={avgline(nodes)} />;
 };
 
 export default LineLayer;
