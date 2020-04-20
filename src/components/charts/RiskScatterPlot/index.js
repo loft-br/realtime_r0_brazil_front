@@ -8,6 +8,8 @@ import { commonProps } from './RiskScatterPlot.styles';
 import AreaLayer from '../AreaLayer';
 import LineLayer from '../LineLayer';
 
+import { BRAZIL_STATES, getLastRtValue } from '../../../utils';
+
 const RiskScatterPlot = ({ data }) => (
   <ScatterPlot
     {...commonProps}
@@ -28,7 +30,23 @@ const createRiskList = (data) =>
       lg={3}
       xs
     >
-      <Typography variant="h6">{id}</Typography>
+      <header
+        style={{
+          display: 'flex',
+          flex: 1,
+          width: '100%',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
+        <Typography variant="h6">{BRAZIL_STATES[id]}</Typography>
+        <Typography
+          variant="h6"
+          color={getLastRtValue(data, id) >= 1 ? 'secondary' : 'error'}
+        >
+          <strong>{getLastRtValue(data, id)}</strong>
+        </Typography>
+      </header>
       <RiskScatterPlot data={[{ id, data: data[id] }]} />
     </Grid>
   ));
