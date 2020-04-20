@@ -57,8 +57,18 @@ const Home = () => {
   return (
     <>
       <Section
+        title="O que é o <em>R<sub>t</sub></em>?"
+        description="O <em>R<sub>t</sub></em>, ou número de reprodução efetivo, é o número médio de contágios
+          causados por cada pessoa infectada em um determinado ponto no tempo,
+          levando em consideração mudanças no nosso comportamento (quarentena,
+          uso de máscaras, home office, etc). Um <em>R<sub>t</sub></em> de 3–4 infectará
+          virtualmente toda a população, enquanto um <em>R<sub>t</sub></em> de 1.5 pode ainda
+          alcançar 60% da população. Somente se o <em>R<sub>t</sub></em> for menor do que 1, a
+          epidemia irá diminuir de tamanho até ser eliminada."
+      ></Section>
+      <Section
         title="Comparação entre estados"
-        description="Para fazer uma comparação entre estados, mostramos a última estimativa de $R_t$ de cada estado no gráfico de barras a seguir, com a incerteza associada. Os gráficos estão ordenados do melhor para o pior usando a estimativa mais provável do modelo."
+        description="Para fazer uma comparação entre estados, mostramos a última estimativa de <em>R<sub>t</sub></em> de cada estado no gráfico de barras a seguir, com a incerteza associada.<br>Os gráficos estão ordenados do melhor para o pior usando a estimativa mais provável do modelo."
       >
         <div
           style={{
