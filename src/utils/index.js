@@ -31,3 +31,27 @@ export const BRAZIL_STATES = {
 
 export const getLastRtValue = (data = {}, id = '') =>
   data?.[id]?.[data[id].length - 1]?.y.toFixed(1);
+
+export const formatListData = ({ data }) => {
+  return data?.reduce((current, next) => {
+    const [id, , y, low, high] = next;
+    const index = (current[id] || []).length;
+
+    return {
+      ...current,
+      [id]: (current[id] || []).concat({
+        id,
+        state: id,
+        x: index,
+        y,
+        low,
+        high,
+      }),
+    };
+  }, {});
+};
+
+export const formatBarChartData = (data) => {
+  const formattedData = formatListData(data);
+  return Object.keys(formattedData).map((k) => data[k][data[k].length - 1]);
+};
