@@ -102,10 +102,14 @@ const Footer = () => {
         <ul>
           <li>
             <Typography variant="body1">
-              A metodologia consegue lidar com baixos níveis de testagem, já que
-              usa variações entre um dia e outro — mais importa a variação entre
-              os números de casos e não o número absoluto — mas pode ser afetada
-              se tivermos grandes variações na disponibilidade de testes.
+              Uma observação relevante: nossa base de dados são os registros
+              oficiais de infectados pelo Brasil e portanto estão sujeitos aos
+              efeitos da subnotificação e baixa testagem até o momento no país.
+              Ao mesmo tempo, a metodologia consegue lidar com esses baixos
+              níveis, já que usa variações entre um dia e outro — mais importa a
+              variação entre os números de casos e não o número absoluto — mas
+              pode ser afetada se tivermos grandes variações na disponibilidade
+              de testes.
             </Typography>
           </li>
           <li>

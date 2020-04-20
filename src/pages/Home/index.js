@@ -23,12 +23,11 @@ const Home = () => {
 
     const getData = async () => {
       try {
-        await dispatch(getModelResults())
-          .then((response) => {
-            setListData(formatListData(response));
-            setBarChartData(formatBarChartData(response));
-            setLoading(false);
-          })
+        await dispatch(getModelResults()).then((response) => {
+          setListData(formatListData(response));
+          setBarChartData(formatBarChartData(response));
+          setLoading(false);
+        });
       } catch (error) {
         setError(true);
         setLoading(false);
@@ -69,7 +68,7 @@ const Home = () => {
       ></Section>
       <Section
         title="Comparação entre estados"
-        description="Para fazer uma comparação entre estados, mostramos a última estimativa de <em>R<sub>t</sub></em> de cada estado no gráfico de barras a seguir, com a incerteza associada.<br>Os gráficos estão ordenados do melhor para o pior usando a estimativa mais provável do modelo."
+        description="Para fazer uma comparação entre estados, mostramos a última estimativa de <em>R<sub>t</sub></em> de cada estado no gráfico a seguir, com a incerteza associada.<br>Os gráficos estão ordenados do melhor para o pior usando a estimativa mais provável do modelo."
       >
         <div
           style={{
