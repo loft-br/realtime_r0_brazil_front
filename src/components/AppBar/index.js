@@ -18,7 +18,7 @@ const AppBar = () => {
         position="static"
         component="header"
       >
-        <Container maxWidth="xlg">
+        <Container maxWidth="xl">
           <Toolbar>
             <svg
               className={classes.title}
