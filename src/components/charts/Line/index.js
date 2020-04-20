@@ -25,20 +25,20 @@ const compare = (a, b) => {
 };
 
 const CustomSymbol = ({ size, color, borderWidth, borderColor, ...rest }) => {
-  console.log(rest);
+  console.log(rest.datum.y);
   return (
     <g>
       <circle
         fill="#fff"
         r={size / 2}
         strokeWidth={borderWidth}
-        stroke={borderColor}
+        stroke={rest.datum.y > 1 ? '#ff774a' : '#19857b'}
       />
       <circle
         r={size / 5}
         strokeWidth={borderWidth}
-        stroke={borderColor}
-        fill={color}
+        stroke={rest.datum.y > 1 ? '#ff774a' : '#19857b'}
+        fill={rest.datum.y > 1 ? '#ff774a' : '#19857b'}
         fillOpacity={0.35}
       />
     </g>
@@ -119,7 +119,7 @@ const Line = ({ data, width }) => {
         max: 2,
       }}
       enableArea={true}
-      areaOpacity={0.07}
+      areaOpacity={0.0}
       enableSlices={false}
       useMesh={true}
       crosshairType="cross"
