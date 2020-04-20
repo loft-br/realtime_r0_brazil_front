@@ -25,20 +25,33 @@ const compare = (a, b) => {
 };
 
 const CustomSymbol = ({ size, color, borderWidth, borderColor, ...rest }) => {
+<<<<<<< HEAD
   console.log(rest.datum.y);
+=======
+  console.log(rest);
+>>>>>>> 460b134... feat: adds api services, line chart & home style updates
   return (
     <g>
       <circle
         fill="#fff"
         r={size / 2}
         strokeWidth={borderWidth}
+<<<<<<< HEAD
         stroke={rest.datum.y > 1 ? '#ff774a' : '#19857b'}
+=======
+        stroke={borderColor}
+>>>>>>> 460b134... feat: adds api services, line chart & home style updates
       />
       <circle
         r={size / 5}
         strokeWidth={borderWidth}
+<<<<<<< HEAD
         stroke={rest.datum.y > 1 ? '#ff774a' : '#19857b'}
         fill={rest.datum.y > 1 ? '#ff774a' : '#19857b'}
+=======
+        stroke={borderColor}
+        fill={color}
+>>>>>>> 460b134... feat: adds api services, line chart & home style updates
         fillOpacity={0.35}
       />
     </g>
@@ -119,7 +132,7 @@ const Line = ({ data, width }) => {
         max: 2,
       }}
       enableArea={true}
-      areaOpacity={0.0}
+      areaOpacity={0.07}
       enableSlices={false}
       useMesh={true}
       crosshairType="cross"
