@@ -23,6 +23,13 @@ const useStyles = makeStyles((theme) => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
+  navigation: {
+    display: 'flex',
+
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+    },
+  },
   title: {
     width: 60,
     marginRight: 'auto',
