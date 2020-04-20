@@ -18,10 +18,11 @@ const Layout = ({ children }) => {
           </em>{' '}
           do COVID-19 por estado no Brasil
         </Typography>
-        <Typography variant="h6">
+        <Typography variant="h6" color="primary">
           Atualizado diariamente.
-          <br></br>
-          Dados até: <strong>20 de Abril de 2020 às 12h14min</strong>
+        </Typography>
+        <Typography variant="h6">
+          Dados até: <strong>20 de Abril de 2020</strong>
         </Typography>
         {children}
         <Footer />

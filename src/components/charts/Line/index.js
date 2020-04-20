@@ -31,13 +31,13 @@ const CustomSymbol = ({ size, color, borderWidth, borderColor, ...rest }) => {
         fill="#fff"
         r={size / 2}
         strokeWidth={borderWidth}
-        stroke={rest.datum.y > 1 ? '#ff774a' : '#19857b'}
+        stroke={rest.datum.y > 1 ? '#E17272' : '#19857b'}
       />
       <circle
         r={size / 5}
         strokeWidth={borderWidth}
-        stroke={rest.datum.y > 1 ? '#ff774a' : '#19857b'}
-        fill={rest.datum.y > 1 ? '#ff774a' : '#19857b'}
+        stroke={rest.datum.y > 1 ? '#E17272' : '#19857b'}
+        fill={rest.datum.y > 1 ? '#E17272' : '#19857b'}
         fillOpacity={0.35}
       />
     </g>
@@ -107,7 +107,7 @@ const Line = ({ data, width }) => {
       }}
       pointLabelYOffset={-20}
       enableGridX
-      colors={['#ff774a', '#19857b']}
+      colors={['#E17272', '#19857b']}
       xScale={{
         type: 'linear',
       }}

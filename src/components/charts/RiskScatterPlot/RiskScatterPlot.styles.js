@@ -45,7 +45,8 @@ export const commonProps = {
       symbolShape: 'circle',
     },
   ],
-  colors: '#ff774a',
+  // colors: '#ff774a',
+  colors: '#E17272',
 };
 
 export default useStyles;
