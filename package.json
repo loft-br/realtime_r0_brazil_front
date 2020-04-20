@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.9.11",
+    "@material-ui/icons": "^4.9.1",
     "@nivo/bar": "^0.61.1",
     "@nivo/line": "^0.61.1",
     "@nivo/scatterplot": "^0.61.1",
