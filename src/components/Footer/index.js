@@ -23,7 +23,7 @@ const Footer = () => {
             <Typography variant="body1">
               <Link
                 target="_blank"
-                color="secondary"
+                color="primary"
                 href="https://docs.google.com/presentation/d/1J0xtMQH0LxN-ZEfnl8I4iooGofEp49fyqKIk69rMf1w/edit#slide=id.g71c335fc92_32_492"
               >
                 Base Case
@@ -31,7 +31,7 @@ const Footer = () => {
               e{' '}
               <Link
                 target="_blank"
-                color="secondary"
+                color="primary"
                 href="https://docs.google.com/presentation/d/1OeQuD0zuU5FcOUGWxkidCvFDloHuMa9zs03iTW2QjCM/edit#slide=id.g714b42d86c_6_298"
               >
                 Action Plan
@@ -43,7 +43,7 @@ const Footer = () => {
             <Typography variant="body1">
               <Link
                 target="_blank"
-                color="secondary"
+                color="primary"
                 href="https://docs.google.com/document/d/1PvR_dI5L_5mhjDWovgIgkkSMtFFHFQ9bRYCY9hx30ZE/edit?ts=5e6a7c6f"
               >
                 Warzoom
@@ -55,7 +55,7 @@ const Footer = () => {
             <Typography variant="body1">
               <Link
                 target="_blank"
-                color="secondary"
+                color="primary"
                 href="https://docs.google.com/document/d/1c8U-eZSZQwr8m3KifQBndBOv0WlDDJ9aD0VPYATe3cg/edit#heading=h.gkvqnzw9i612"
               >
                 Reports
@@ -67,7 +67,7 @@ const Footer = () => {
             <Typography variant="body1">
               <Link
                 target="_blank"
-                color="secondary"
+                color="primary"
                 href="https://github.com/gdmarmerola/realtime_r0_brazil"
               >
                 Repositório no GitHub
@@ -82,7 +82,7 @@ const Footer = () => {
             <Typography variant="body1">
               <Link
                 target="_blank"
-                color="secondary"
+                color="primary"
                 href="https://github.com/k-sys/covid-19/blob/master/Realtime%20R0.ipynb"
               >
                 Notebook
@@ -102,10 +102,14 @@ const Footer = () => {
         <ul>
           <li>
             <Typography variant="body1">
-              A metodologia consegue lidar com baixos níveis de testagem, já que
-              usa variações entre um dia e outro — mais importa a variação entre
-              os números de casos e não o número absoluto — mas pode ser afetada
-              se tivermos grandes variações na disponibilidade de testes.
+              Uma observação relevante: nossa base de dados são os registros
+              oficiais de infectados pelo Brasil e portanto estão sujeitos aos
+              efeitos da subnotificação e baixa testagem até o momento no país.
+              Ao mesmo tempo, a metodologia consegue lidar com esses baixos
+              níveis, já que usa variações entre um dia e outro — mais importa a
+              variação entre os números de casos e não o número absoluto — mas
+              pode ser afetada se tivermos grandes variações na disponibilidade
+              de testes.
             </Typography>
           </li>
           <li>
@@ -139,7 +143,7 @@ const Footer = () => {
           Análise por{' '}
           <Link
             target="_blank"
-            color="secondary"
+            color="primary"
             href="https://www.linkedin.com/in/gdmarmerola/"
           >
             Guilherme Marmerola
@@ -147,7 +151,7 @@ const Footer = () => {
           e site construído por{' '}
           <Link
             target="_blank"
-            color="secondary"
+            color="primary"
             href="https://www.linkedin.com/in/thiago-capelo-0156446a/"
           >
             Thiago Kpelo
@@ -155,7 +159,7 @@ const Footer = () => {
           ,{' '}
           <Link
             target="_blank"
-            color="secondary"
+            color="primary"
             href="https://www.linkedin.com/in/kopplin/"
           >
             Sérgio Kopplin
@@ -163,7 +167,7 @@ const Footer = () => {
           e{' '}
           <Link
             target="_blank"
-            color="secondary"
+            color="primary"
             href="https://www.linkedin.com/in/filipecunha/"
           >
             Filipe Cunha
@@ -174,7 +178,7 @@ const Footer = () => {
           Obrigado a{' '}
           <Link
             target="_blank"
-            color="secondary"
+            color="primary"
             href="https://www.linkedin.com/in/flora-oliveira-37201b42/"
           >
             Flora Oliveira
@@ -182,7 +186,7 @@ const Footer = () => {
           ,{' '}
           <Link
             target="_blank"
-            color="secondary"
+            color="primary"
             href="https://www.linkedin.com/in/ricardo-kauffman-80525a7a/"
           >
             Ricardo Kauffman
@@ -190,7 +194,7 @@ const Footer = () => {
           e{' '}
           <Link
             target="_blank"
-            color="secondary"
+            color="primary"
             href="https://www.linkedin.com/in/diogokpelo/"
           >
             Diogo Kpelo
