@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     '&.MuiTypography-h2': { fontWeight },
     '&.MuiTypography-h3': { fontWeight },
     '&.MuiTypography-h4': { fontWeight },
-    // '&.MuiTypography-h5': { fontWeight },
+    '&.MuiTypography-h5': { fontWeight },
     // '&.MuiTypography-h6': { fontWeight },
   },
 }));

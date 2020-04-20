@@ -17,11 +17,20 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     '&:not(:last-child)': {
-      marginRight: theme.spacing(3),
+      [theme.breakpoints.up('md')]: {
+        marginRight: theme.spacing(3),
+      },
     },
   },
   menuButton: {
     marginRight: theme.spacing(2),
+  },
+  navigation: {
+    display: 'flex',
+
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+    },
   },
   title: {
     width: 60,

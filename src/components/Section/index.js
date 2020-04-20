@@ -7,12 +7,16 @@ const Section = ({ children, description, title }) => {
 
   return (
     <div className={classes.root}>
-      <Typography className={classes.title} variant="h4">
-        {title}
-      </Typography>
-      <Typography className={classes.description} variant="subtitle1">
-        {description}
-      </Typography>
+      <Typography
+        className={classes.title}
+        variant="h4"
+        dangerouslySetInnerHTML={{ __html: title }}
+      />
+      <Typography
+        className={classes.description}
+        variant="subtitle1"
+        dangerouslySetInnerHTML={{ __html: description }}
+      />
       {children}
     </div>
   );
