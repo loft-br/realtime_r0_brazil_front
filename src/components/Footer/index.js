@@ -18,6 +18,7 @@ const Footer = () => {
           <li>
             <Typography variant="body1">
               <Link
+                target="_blank"
                 color="secondary"
                 href="https://docs.google.com/presentation/d/1J0xtMQH0LxN-ZEfnl8I4iooGofEp49fyqKIk69rMf1w/edit#slide=id.g71c335fc92_32_492"
               >
@@ -25,6 +26,7 @@ const Footer = () => {
               </Link>{' '}
               e{' '}
               <Link
+                target="_blank"
                 color="secondary"
                 href="https://docs.google.com/presentation/d/1OeQuD0zuU5FcOUGWxkidCvFDloHuMa9zs03iTW2QjCM/edit#slide=id.g714b42d86c_6_298"
               >
@@ -36,6 +38,7 @@ const Footer = () => {
           <li>
             <Typography variant="body1">
               <Link
+                target="_blank"
                 color="secondary"
                 href="https://docs.google.com/document/d/1PvR_dI5L_5mhjDWovgIgkkSMtFFHFQ9bRYCY9hx30ZE/edit?ts=5e6a7c6f"
               >
@@ -47,6 +50,7 @@ const Footer = () => {
           <li>
             <Typography variant="body1">
               <Link
+                target="_blank"
                 color="secondary"
                 href="https://docs.google.com/document/d/1c8U-eZSZQwr8m3KifQBndBOv0WlDDJ9aD0VPYATe3cg/edit#heading=h.gkvqnzw9i612"
               >
@@ -58,6 +62,7 @@ const Footer = () => {
           <li>
             <Typography variant="body1">
               <Link
+                target="_blank"
                 color="secondary"
                 href="https://github.com/gdmarmerola/realtime_r0_brazil"
               >
@@ -69,6 +74,7 @@ const Footer = () => {
           <li>
             <Typography variant="body1">
               <Link
+                target="_blank"
                 color="secondary"
                 href="https://github.com/k-sys/covid-19/blob/master/Realtime%20R0.ipynb"
               >
@@ -115,6 +121,7 @@ const Footer = () => {
         <Typography variant="body1">
           Análise por{' '}
           <Link
+            target="_blank"
             color="secondary"
             href="https://www.linkedin.com/in/gdmarmerola/"
           >
@@ -122,17 +129,23 @@ const Footer = () => {
           </Link>{' '}
           e site construído por{' '}
           <Link
+            target="_blank"
             color="secondary"
             href="https://www.linkedin.com/in/thiago-capelo-0156446a/"
           >
-            Thiago Capelo
+            Thiago Kpelo
           </Link>
           ,{' '}
-          <Link color="secondary" href="https://www.linkedin.com/in/kopplin/">
+          <Link
+            target="_blank"
+            color="secondary"
+            href="https://www.linkedin.com/in/kopplin/"
+          >
             Sérgio Kopplin
           </Link>{' '}
           e{' '}
           <Link
+            target="_blank"
             color="secondary"
             href="https://www.linkedin.com/in/filipecunha/"
           >
