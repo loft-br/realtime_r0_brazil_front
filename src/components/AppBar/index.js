@@ -41,9 +41,9 @@ const AppBar = () => {
                 className={classes.link}
                 color="inherit"
                 component="a"
-                href="https://medium.com/@flohagenbuch/vemos-luz-no-fim-do-t%C3%BAnel-covid-19-96663d3cf1ed"
+                href="https://medium.com/@flohagenbuch/uma-m%C3%A9trica-para-acompanhar-o-covid-19-c0046c51ba24"
                 target="_blank"
-                title="Vemos luz no fim do túnel COVID-19?"
+                title="Uma métrica para acompanhar o COVID-19"
               >
                 Metodologia
               </Button>
@@ -51,9 +51,9 @@ const AppBar = () => {
                 className={classes.link}
                 color="inherit"
                 component="a"
-                href="https://medium.com/@flohagenbuch/uma-m%C3%A9trica-para-acompanhar-o-covid-19-c0046c51ba24"
+                href="https://medium.com/@flohagenbuch/vemos-luz-no-fim-do-t%C3%BAnel-covid-19-96663d3cf1ed"
                 target="_blank"
-                title="Uma métrica para acompanhar o COVID-19"
+                title="Vemos luz no fim do túnel COVID-19?"
               >
                 Perspectivas
               </Button>
