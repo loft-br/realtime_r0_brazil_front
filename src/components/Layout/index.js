@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
         <Typography variant="h6">
           Atualizado diariamente.
           <br></br>
-          Última atualização: <strong>19 de Abril de 2020</strong>
+          Última atualização: <strong>20 de Abril de 2020</strong>
         </Typography>
         {children}
         <Footer />

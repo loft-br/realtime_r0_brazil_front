@@ -1,3 +1,15 @@
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  header: {
+    display: 'flex',
+    flex: 1,
+    width: '100%',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+}));
+
 export const commonProps = {
   width: 300,
   height: 200,
@@ -43,3 +55,5 @@ export const commonProps = {
   ],
   colors: '#ff774a',
 };
+
+export default useStyles;

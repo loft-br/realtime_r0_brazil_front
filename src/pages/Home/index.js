@@ -1,36 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { CircularProgress, Grid } from '@material-ui/core';
 
-import { createRiskList, RiskBar, Line } from '../../components/charts/';
+import { RiskList, RiskBar, Line } from '../../components/charts/';
 import Typography from '../../components/Typography';
 import Section from '../../components/Section';
 import { DataEntity } from '../../services';
+import { formatListData, formatBarChartData } from '../../utils';
 import useStyles from './Home.styles';
 
 const dataApi = new DataEntity();
-
-const formatListData = ({ data }) => {
-  return data?.reduce((current, next) => {
-    const [id, , y, low, high] = next;
-    const index = (current[id] || []).length;
-
-    return {
-      ...current,
-      [id]: (current[id] || []).concat({
-        id,
-        state: id,
-        x: index,
-        y,
-        low,
-        high,
-      }),
-    };
-  }, {});
-};
-
-const formatBarChartData = (data) => {
-  return Object.keys(data).map((k) => data[k][data[k].length - 1]);
-};
 
 const Home = () => {
   const classes = useStyles();
@@ -48,7 +26,7 @@ const Home = () => {
         const response = await dataApi.getModelResultState();
 
         setListData(formatListData(response));
-        setBarChartData(formatBarChartData(formatListData(response)));
+        setBarChartData(formatBarChartData(response));
         setLoading(false);
       } catch (error) {
         setError(true);
@@ -106,7 +84,7 @@ const Home = () => {
           alignItems="center"
           spacing={4}
         >
-          {createRiskList(listData)}
+          <RiskList data={listData} />
         </Grid>
       </Section>
     </>
