@@ -19,6 +19,7 @@ const RiskScatterPlot = ({ data }) => {
       data={data}
       legends={[]}
       xFormat={d => `${('0' + d.getDate()).slice(-2)}/${('0' + (d.getMonth()+1)).slice(-2)}/${d.getFullYear()}`}
+      yFormat={d => d}
       layers={[
         AreaLayerPositive,
         AreaLayerNegative,
