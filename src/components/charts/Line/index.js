@@ -1,6 +1,8 @@
 import React from 'react';
 import { ResponsiveLine } from '@nivo/line';
 
+import Tooltip from '../Tooltip';
+
 const commonProperties = {
   width: 1200,
   // height: 1200,
@@ -125,6 +127,7 @@ const Line = ({ data, width }) => {
         min: 0,
         max: 4,
       }}
+      tooltip={({ point }) => <Tooltip data={point?.data} />}
       enableArea={true}
       areaOpacity={0.0}
       enableSlices={false}

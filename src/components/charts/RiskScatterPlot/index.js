@@ -5,10 +5,11 @@ import { Grid, Typography } from '@material-ui/core';
 
 import { commonProps } from './RiskScatterPlot.styles';
 
-import { BRAZIL_STATES, getLastRtValue } from '../../../utils';
+import { BRAZIL_STATES, formatDate, getLastRtValue } from '../../../utils';
 
 import { AreaLayerNegative, AreaLayerPositive } from '../AreaLayer';
 import LineLayer from '../LineLayer';
+import Tooltip from '../Tooltip';
 
 import useStyles from './RiskScatterPlot.styles';
 
@@ -17,7 +18,10 @@ const RiskScatterPlot = ({ data }) => {
     <ScatterPlot
       {...commonProps}
       data={data}
+      tooltip={({ node }) => <Tooltip data={node?.data} />}
       legends={[]}
+      xFormat={formatDate}
+      yFormat={(d) => d}
       layers={[
         AreaLayerPositive,
         AreaLayerNegative,
@@ -28,7 +32,7 @@ const RiskScatterPlot = ({ data }) => {
       ]}
     />
   );
-}
+};
 
 const RiskList = ({ data }) => {
   const classes = useStyles();
