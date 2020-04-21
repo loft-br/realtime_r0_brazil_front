@@ -30,7 +30,7 @@ export const BRAZIL_STATES = {
 };
 
 export const getLastRtValue = (data = {}, id = '') =>
-  data?.[id]?.[data[id].length - 1]?.y.toFixed(1);
+  data?.[id]?.[data[id].length - 1]?.y.toFixed(2);
 
 export const formatListData = ({ data }) => {
   return data?.reduce((current, next) => {
