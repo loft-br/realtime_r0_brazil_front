@@ -1,6 +1,7 @@
 import React from 'react';
 import { ResponsiveLine } from '@nivo/line';
 
+import LineLayer from '../LineLayer';
 import Tooltip from '../Tooltip';
 import Typography from '../../Typography';
 
@@ -148,6 +149,20 @@ const Line = ({ data, width }) => {
       useMesh={true}
       crosshairType="cross"
       lineWidth={0}
+      layers={[
+        'grid',
+        LineLayer,
+        'axes',
+        'markers',
+        'areas',
+        'bars',
+        'crosshair',
+        'lines',
+        'points',
+        'slices',
+        'mesh',
+        'legends',
+      ]}
     />
   );
 };
