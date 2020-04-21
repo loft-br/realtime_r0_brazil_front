@@ -2,6 +2,9 @@ import React from 'react';
 import { ResponsiveLine } from '@nivo/line';
 
 import Tooltip from '../Tooltip';
+import Typography from '../../Typography';
+
+import { BRAZIL_STATES } from '../../../utils';
 
 const commonProperties = {
   width: 1200,
@@ -57,6 +60,14 @@ const CustomSymbol = ({ size, color, borderWidth, borderColor, ...rest }) => {
     </g>
   );
 };
+
+const TooltipLine = ({ data }) => (
+  <Tooltip data={data}>
+    <Typography variant="caption">
+      <strong>{BRAZIL_STATES[data?.state]}</strong>
+    </Typography>
+  </Tooltip>
+);
 
 const Line = ({ data, width }) => {
   const mapper = {
@@ -127,7 +138,10 @@ const Line = ({ data, width }) => {
         min: 0,
         max: 4,
       }}
-      tooltip={({ point }) => <Tooltip data={point?.data} />}
+      axisLeft={{
+        format: (d) => d.toFixed(1),
+      }}
+      tooltip={({ point }) => <TooltipLine data={point?.data} />}
       enableArea={true}
       areaOpacity={0.0}
       enableSlices={false}

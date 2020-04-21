@@ -13,12 +13,20 @@ import Tooltip from '../Tooltip';
 
 import useStyles from './RiskScatterPlot.styles';
 
+const TooltipScatter = ({ data }) => (
+  <Tooltip data={data}>
+    <Typography variant="caption">
+      <strong>Dia {formatDate(data?.date)}</strong>
+    </Typography>
+  </Tooltip>
+);
+
 const RiskScatterPlot = ({ data }) => {
   return (
     <ScatterPlot
       {...commonProps}
       data={data}
-      tooltip={({ node }) => <Tooltip data={node?.data} />}
+      tooltip={({ node }) => <TooltipScatter data={node?.data} />}
       legends={[]}
       xFormat={formatDate}
       yFormat={(d) => d}

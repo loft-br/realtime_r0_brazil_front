@@ -4,22 +4,18 @@ import { Typography, Paper } from '@material-ui/core';
 import Rt from '../../Rt';
 import Thumb from '../../Thumb';
 
-import { formatDate } from '../../../utils';
-
 import useStyles from './Tooltip.styles';
 
 const RED = '#f9e7e7';
 const GREEN = '#c3f5c3';
 
-const Tooltip = ({ data = {} }) => {
+const Tooltip = ({ children, data = {} }) => {
   const classes = useStyles();
   const getColor = (number) => (number < 1 ? GREEN : RED);
 
   return (
     <Paper variant="outlined" elevation={3} className={classes.root}>
-      <Typography variant="caption">
-        <strong>Dia {formatDate(data?.date)}</strong>
-      </Typography>
+      {children}
       <br />
       <Typography variant="caption">
         <Rt />: {data?.formattedY || data?.y}
