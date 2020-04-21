@@ -36,12 +36,15 @@ export const formatListData = ({ data }) => {
   return data?.reduce((current, next) => {
     const [id, x, y, low, high] = next;
     const [year, month, day] = x.split('-');
+    const date = new Date(year, +month - 1, day);
+
     return {
       ...current,
       [id]: (current[id] || []).concat({
         id,
         state: id,
-        x: new Date(year, +month - 1, day),
+        date,
+        x: date,
         y,
         low,
         high,
@@ -56,3 +59,8 @@ export const formatBarChartData = (data) => {
     (k) => formattedData[k][formattedData[k].length - 1]
   );
 };
+
+export const formatDate = (d) =>
+  `${('0' + d.getDate()).slice(-2)}/${('0' + (d.getMonth() + 1)).slice(
+    -2
+  )}/${d.getFullYear()}`;
