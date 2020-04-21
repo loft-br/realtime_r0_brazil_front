@@ -21,6 +21,7 @@ export const commonProps = {
     type: 'linear',
     max: 5,
   },
+  xScale: { type: 'time' },
   xFormat: (d) => d,
   yFormat: (d) => d.toFixed(1),
   enableGridX: false,

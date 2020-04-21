@@ -34,15 +34,14 @@ export const getLastRtValue = (data = {}, id = '') =>
 
 export const formatListData = ({ data }) => {
   return data?.reduce((current, next) => {
-    const [id, , y, low, high] = next;
-    const index = (current[id] || []).length;
+    const [id, x, y, low, high] = next;
 
     return {
       ...current,
       [id]: (current[id] || []).concat({
         id,
         state: id,
-        x: index,
+        x: new Date(...x.split('-')),
         y,
         low,
         high,
