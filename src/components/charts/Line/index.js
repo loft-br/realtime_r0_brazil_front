@@ -167,6 +167,4 @@ const Line = ({ data, width }) => {
   );
 };
 
-// layers={['grid', 'axes', 'bars', 'markers', LineLayer, 'points']}
-
 export default Line;
