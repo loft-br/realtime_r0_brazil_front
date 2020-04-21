@@ -25,7 +25,6 @@ const compare = (a, b) => {
 };
 
 const CustomSymbol = ({ size, color, borderWidth, borderColor, ...rest }) => {
-  console.log(rest);
   const height = (rest.datum.high - rest.datum.low) * 100;
 
   return (
