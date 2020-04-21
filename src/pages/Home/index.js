@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { CircularProgress, Grid } from '@material-ui/core';
+import { Typography, CircularProgress, Grid } from '@material-ui/core';
 
 import { RiskList, Line } from '../../components/charts/';
 import Section from '../../components/Section';
@@ -47,8 +47,8 @@ const Home = () => {
   if (error || !listData || !barChartData) {
     return (
       <div className={classes.errorWrapper}>
-        {/*<Typography variant="h5">Um Erro ocorreu!</Typography>*/}
-        {/*<Typography variant="h6">Tente novamente mais tarde.</Typography>*/}
+        <Typography variant="h5">Um Erro ocorreu!</Typography>
+        <Typography variant="h6">Tente novamente mais tarde.</Typography>
       </div>
     );
   }

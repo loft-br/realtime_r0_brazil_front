@@ -35,13 +35,13 @@ export const getLastRtValue = (data = {}, id = '') =>
 export const formatListData = ({ data }) => {
   return data?.reduce((current, next) => {
     const [id, x, y, low, high] = next;
-
+    const [year, month, day] = x.split('-');
     return {
       ...current,
       [id]: (current[id] || []).concat({
         id,
         state: id,
-        x: new Date(...x.split('-')),
+        x: new Date(year, +month - 1, day),
         y,
         low,
         high,
