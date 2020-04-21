@@ -67,7 +67,7 @@ const Footer = () => {
               <Link
                 target="_blank"
                 color="primary"
-                href="https://github.com/gdmarmerola/realtime_r0_brazil"
+                href="https://github.com/loft-br/realtime_r0_brazil"
               >
                 Repositório no GitHub
               </Link>{' '}
@@ -75,6 +75,18 @@ const Footer = () => {
               <em>
                 R<sub>t</sub>
               </em>
+            </Typography>
+          </li>
+          <li>
+            <Typography variant="body1">
+              <Link
+                target="_blank"
+                color="primary"
+                href="https://github.com/loft-br/realtime_r0_brazil_front"
+              >
+                Repositório no GitHub
+              </Link>{' '}
+              com o frontend desse projeto
             </Typography>
           </li>
           <li>
