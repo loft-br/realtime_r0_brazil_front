@@ -9,6 +9,7 @@ import { BRAZIL_STATES, getLastRtValue } from '../../../utils';
 
 import { AreaLayerNegative, AreaLayerPositive } from '../AreaLayer';
 import LineLayer from '../LineLayer';
+import Tooltip from '../Tooltip';
 
 import useStyles from './RiskScatterPlot.styles';
 
@@ -17,7 +18,17 @@ const RiskScatterPlot = ({ data }) => {
     <ScatterPlot
       {...commonProps}
       data={data}
+      tooltip={Tooltip}
       legends={[]}
+<<<<<<< HEAD
+=======
+      xFormat={(d) =>
+        `${('0' + d.getDate()).slice(-2)}/${('0' + (d.getMonth() + 1)).slice(
+          -2
+        )}/${d.getFullYear()}`
+      }
+      yFormat={(d) => d}
+>>>>>>> add: tooltip
       layers={[
         AreaLayerPositive,
         AreaLayerNegative,
@@ -28,7 +39,7 @@ const RiskScatterPlot = ({ data }) => {
       ]}
     />
   );
-}
+};
 
 const RiskList = ({ data }) => {
   const classes = useStyles();
