@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { CircularProgress, Grid } from '@material-ui/core';
 
-import { RiskList, RiskBar, Line } from '../../components/charts/';
-import Typography from '../../components/Typography';
+import { RiskList, Line } from '../../components/charts/';
 import Section from '../../components/Section';
 import { formatListData, formatBarChartData } from '../../utils';
 import useStyles from './Home.styles';

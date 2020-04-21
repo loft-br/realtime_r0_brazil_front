@@ -7,7 +7,7 @@ import { commonProps } from './RiskScatterPlot.styles';
 
 import { BRAZIL_STATES, getLastRtValue } from '../../../utils';
 
-import { AreaLayer, AreaLayerNegative, AreaLayerPositive } from '../AreaLayer';
+import { AreaLayerNegative, AreaLayerPositive } from '../AreaLayer';
 import LineLayer from '../LineLayer';
 
 import useStyles from './RiskScatterPlot.styles';
@@ -20,7 +20,6 @@ const RiskScatterPlot = ({ data }) => (
     layers={[
       AreaLayerPositive,
       AreaLayerNegative,
-      // AreaLayer,
       'grid',
       'axes',
       'nodes',
