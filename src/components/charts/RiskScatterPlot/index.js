@@ -12,21 +12,24 @@ import LineLayer from '../LineLayer';
 
 import useStyles from './RiskScatterPlot.styles';
 
-const RiskScatterPlot = ({ data }) => (
-  <ScatterPlot
-    {...commonProps}
-    data={data}
-    legends={[]}
-    layers={[
-      AreaLayerPositive,
-      AreaLayerNegative,
-      'grid',
-      'axes',
-      'nodes',
-      LineLayer,
-    ]}
-  />
-);
+const RiskScatterPlot = ({ data }) => {
+  return (
+    <ScatterPlot
+      {...commonProps}
+      data={data}
+      legends={[]}
+      xFormat={d => `${('0' + d.getDate()).slice(-2)}/${('0' + (d.getMonth()+1)).slice(-2)}/${d.getFullYear()}`}
+      layers={[
+        AreaLayerPositive,
+        AreaLayerNegative,
+        'grid',
+        'axes',
+        'nodes',
+        LineLayer,
+      ]}
+    />
+  );
+}
 
 const RiskList = ({ data }) => {
   const classes = useStyles();
