@@ -25,6 +25,7 @@ const RiskScatterPlot = ({ data }) => {
   return (
     <ScatterPlot
       {...commonProps}
+      useMesh
       data={data}
       tooltip={({ node }) => <TooltipScatter data={node?.data} />}
       legends={[]}
@@ -37,6 +38,7 @@ const RiskScatterPlot = ({ data }) => {
         'axes',
         'nodes',
         LineLayer,
+        'mesh',
       ]}
     />
   );
