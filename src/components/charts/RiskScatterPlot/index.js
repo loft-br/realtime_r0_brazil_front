@@ -21,26 +21,26 @@ const TooltipScatter = ({ data }) => (
   </Tooltip>
 );
 
-const RiskScatterPlot = ({ data }) => {
-  return (
-    <ScatterPlot
-      {...commonProps}
-      data={data}
-      tooltip={({ node }) => <TooltipScatter data={node?.data} />}
-      legends={[]}
-      xFormat={formatDate}
-      yFormat={(d) => d}
-      layers={[
-        AreaLayerPositive,
-        AreaLayerNegative,
-        'grid',
-        'axes',
-        'nodes',
-        LineLayer,
-      ]}
-    />
-  );
-};
+const RiskScatterPlot = ({ data }) => (
+  <ScatterPlot
+    {...commonProps}
+    data={data}
+    layers={[
+      AreaLayerPositive,
+      AreaLayerNegative,
+      'grid',
+      'axes',
+      'nodes',
+      LineLayer,
+      'mesh',
+    ]}
+    legends={[]}
+    tooltip={({ node }) => <TooltipScatter data={node?.data} />}
+    useMesh
+    xFormat={formatDate}
+    yFormat={(d) => d}
+  />
+);
 
 const RiskList = ({ data }) => {
   const classes = useStyles();
