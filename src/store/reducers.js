@@ -11,8 +11,10 @@ export default (state = inicialState, { payload, type }) => {
     case actionTypes.GET_MODEL_RESULTS:
       return {
         ...state,
-        data: payload.data,
-        lastUpdateTime: fullFormatDate(getLastTimestamp(payload?.data)),
+        data: payload?.data,
+        lastUpdateTime: fullFormatDate(
+          new Date(getLastTimestamp(payload?.data))
+        ),
       };
 
     default:
