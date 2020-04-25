@@ -1,4 +1,4 @@
-import { fullFormatDate, getLastTimestamp } from 'utils';
+import { fullFormatDate, getLastTimestamp, dateObjectBuider } from 'utils';
 import actionTypes from './action_types';
 
 const inicialState = {
@@ -23,19 +23,21 @@ export default (state = inicialState, { payload, type }) => {
         loading: false,
       };
 
-    case actionTypes.LOAD_MODEL_SUCCESS:
+    case actionTypes.LOAD_MODEL_SUCCESS: {
+      const lastTimestamp = getLastTimestamp(payload.data);
+      const date = dateObjectBuider(lastTimestamp);
+
       return {
         ...state,
         data: {
           ...state.data,
           states: payload?.data,
-          lastUpdateTime: fullFormatDate(
-            new Date(getLastTimestamp(payload.data))
-          ),
+          lastUpdateTime: fullFormatDate(date),
         },
         loading: false,
         error: false,
       };
+    }
 
     default:
       return state;

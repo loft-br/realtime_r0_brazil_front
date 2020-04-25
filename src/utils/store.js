@@ -1,3 +1,5 @@
+import { dateObjectBuider } from 'utils';
+
 export const BRAZIL_STATES = {
   AC: 'Acre',
   AL: 'Alagoas',
@@ -37,8 +39,7 @@ export const getLastRtValue = (data = {}, id = '') =>
 export const formatListData = (data) => {
   return data?.reduce((current, next) => {
     const [id, x, y, low, high] = next;
-    const [year, month, day] = x.split('-');
-    const date = new Date(year, +month - 1, day);
+    const date = dateObjectBuider(x);
 
     return {
       ...current,
