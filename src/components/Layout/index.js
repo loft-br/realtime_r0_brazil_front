@@ -9,7 +9,7 @@ import useStyles from './Layout.styles';
 
 const Layout = ({ children }) => {
   const classes = useStyles();
-  const formattedDate = useSelector((state) => state?.lastUpdateTime);
+  const formattedDate = useSelector((state) => state?.data?.lastUpdateTime);
 
   return (
     <>
