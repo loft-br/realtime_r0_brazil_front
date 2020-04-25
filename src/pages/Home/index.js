@@ -22,6 +22,11 @@ const Home = () => {
   const error = useSelector((state) => state.error);
   const states = useSelector((state) => state.data?.states);
 
+  const updateData = useCallback(() => {
+    setListData(formatListData(states));
+    setBarChartData(formatBarChartData(states));
+  }, [states]);
+
   const canRender = useCallback(
     (data) => !error && !loading && data !== undefined && data !== null,
     [error, loading]
@@ -33,15 +38,15 @@ const Home = () => {
     } catch (e) {
       console.error(e);
     }
-
-    setListData(formatListData(states));
-    setBarChartData(formatBarChartData(states));
-  }, [dispatch, states]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     getData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => updateData(), [updateData]);
 
   if (error) {
     return (
