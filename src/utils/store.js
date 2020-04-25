@@ -56,8 +56,8 @@ export const formatListData = (data) => {
 };
 
 export const formatBarChartData = (data) => {
-  const formattedData = formatListData(data);
-  return Object.keys(formattedData).map(
+  const formattedData = formatListData(data) || {};
+  return Object.keys(formattedData)?.map(
     (k) => formattedData[k][formattedData[k].length - 1]
   );
 };
