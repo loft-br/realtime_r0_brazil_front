@@ -1,15 +1,11 @@
 import React from 'react';
 import { ResponsiveLine } from '@nivo/line';
 
-import LineLayer from '../LineLayer';
-import Tooltip from '../Tooltip';
-import Typography from '../../Typography';
-
-import { BRAZIL_STATES } from '../../../utils';
+import LineLayer from 'components/charts/LineLayer';
+import TooltipLine from './TooltipLine';
 
 const commonProperties = {
   width: 1200,
-  // height: 1200,
   margin: { top: 20, right: 20, bottom: 60, left: 80 },
   animate: true,
   enableSlices: 'x',
@@ -62,15 +58,7 @@ const CustomSymbol = ({ size, color, borderWidth, borderColor, ...rest }) => {
   );
 };
 
-const TooltipLine = ({ data }) => (
-  <Tooltip data={data}>
-    <Typography variant="caption">
-      <strong>{BRAZIL_STATES[data?.state]}</strong>
-    </Typography>
-  </Tooltip>
-);
-
-const Line = ({ data, width }) => {
+const Line = ({ data }) => {
   const mapper = {
     positive: [],
     negative: [],
@@ -155,8 +143,6 @@ const Line = ({ data, width }) => {
         'axes',
         'markers',
         'areas',
-        'bars',
-        'crosshair',
         'lines',
         'points',
         'slices',

@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    boxShadow: 0,
+    boxShadow: 'none',
     backgroundColor: theme.palette.common.white,
   },
   header: {

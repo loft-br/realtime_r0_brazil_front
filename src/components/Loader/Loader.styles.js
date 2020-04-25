@@ -1,19 +1,15 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  errorWrapper: {
+  loadingWrapper: {
     width: '100%',
+    minHeight: 300,
+    zIndex: 999,
     margin: '0 auto',
     textAlign: 'center',
-    marginTop: 80,
-  },
-  barChartWrapper: {
     display: 'flex',
-    width: '100%',
-    position: 'relative',
-    height: 500,
-    overflowX: 'auto',
-    overflowY: 'hidden',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 }));
 

@@ -1,35 +1,23 @@
-import { get } from '../utils/api.js';
+import { get } from 'utils';
 import actionTypes from './action_types';
 
 export const getModelResults = () => async (dispatch) => {
-  return await get('/get_model_results').then((res) => {
-    const data = res.data.data;
-    const rawDate = data[data.length - 1][1];
-    const dateObj = new Date(rawDate);
-    const monthsName = [
-      'Janeiro',
-      'Fevereiro',
-      'Março',
-      'Abril',
-      'Maio',
-      'Junho',
-      'Julho',
-      'Agosto',
-      'Setembro',
-      'Outubro',
-      'Novembro',
-      'Dezembro',
-    ];
-    const formattedDate = `${dateObj.getDate() + 1} de ${
-      monthsName[dateObj.getMonth()]
-    } de ${dateObj.getFullYear()}`;
-    dispatch({
-      type: actionTypes.GET_MODEL_RESULTS,
-      payload: {
-        data: res.data,
-        lastUpdateTime: formattedDate,
-      },
+  dispatch({ type: actionTypes.LOAD_MODEL_REQUEST });
+
+  return await get('/get_model_results')
+    .then((res) => {
+      const { data } = res?.data || {};
+
+      dispatch({
+        type: actionTypes.LOAD_MODEL_SUCCESS,
+        payload: {
+          data,
+        },
+      });
+
+      return data;
+    })
+    .catch(() => {
+      dispatch({ type: actionTypes.LOAD_MODEL_FAILURE });
     });
-    return res.data;
-  });
 };

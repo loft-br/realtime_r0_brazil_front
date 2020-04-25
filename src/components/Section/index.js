@@ -1,22 +1,26 @@
 import React from 'react';
-import Typography from '../Typography';
+import Typography from 'components/Typography';
 import useStyles from './Section.styles';
 
-const Section = ({ children, description, title }) => {
+const Section = ({ children = null, description, title }) => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <Typography
-        className={classes.title}
-        variant="h4"
-        dangerouslySetInnerHTML={{ __html: title }}
-      />
-      <Typography
-        className={classes.description}
-        variant="subtitle1"
-        dangerouslySetInnerHTML={{ __html: description }}
-      />
+      {title && (
+        <Typography
+          className={classes.title}
+          variant="h4"
+          dangerouslySetInnerHTML={{ __html: title }}
+        />
+      )}
+      {description && (
+        <Typography
+          className={classes.description}
+          variant="subtitle1"
+          dangerouslySetInnerHTML={{ __html: description }}
+        />
+      )}
       {children}
     </div>
   );

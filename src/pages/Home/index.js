@@ -1,50 +1,54 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { Typography, CircularProgress, Grid } from '@material-ui/core';
+import React, { useEffect, useState, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Typography, Grid } from '@material-ui/core';
 
-import { RiskList, Line } from '../../components/charts/';
-import Section from '../../components/Section';
-import { formatListData, formatBarChartData } from '../../utils';
+import { RiskList, Line } from 'components/charts/';
+import Loader from 'components/Loader';
+import Section from 'components/Section';
+
+import { getModelResults } from 'store/actions';
+import { formatListData, formatBarChartData } from 'utils';
+
 import useStyles from './Home.styles';
-import { getModelResults } from '../../store/actions';
 
 const Home = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
   const [listData, setListData] = useState(null);
   const [barChartData, setBarChartData] = useState(null);
 
+  const loading = useSelector((state) => state.loading);
+  const error = useSelector((state) => state.error);
+  const states = useSelector((state) => state.data?.states);
+
+  const updateData = useCallback(() => {
+    setListData(formatListData(states));
+    setBarChartData(formatBarChartData(states));
+  }, [states]);
+
+  const canRender = useCallback(
+    (data) => !error && !loading && data !== undefined && data !== null,
+    [error, loading]
+  );
+
+  const getData = useCallback(async () => {
+    try {
+      await dispatch(getModelResults());
+    } catch (e) {
+      console.error(e);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   useEffect(() => {
-    setLoading(true);
-
-    const getData = async () => {
-      try {
-        await dispatch(getModelResults()).then((response) => {
-          setListData(formatListData(response));
-          setBarChartData(formatBarChartData(response));
-          setLoading(false);
-        });
-      } catch (error) {
-        setError(true);
-        setLoading(false);
-      }
-    };
-
     getData();
-  }, [dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  if (loading) {
-    return (
-      <div className={classes.loadingWrapper}>
-        <CircularProgress size={60} />
-      </div>
-    );
-  }
+  useEffect(() => updateData(), [updateData]);
 
-  if (error || !listData || !barChartData) {
+  if (error) {
     return (
       <div className={classes.errorWrapper}>
         <Typography variant="h5">Um Erro ocorreu!</Typography>
@@ -57,29 +61,20 @@ const Home = () => {
     <>
       <Section
         title="O que é o <em>R<sub>t</sub></em>?"
-        description="O <em>R<sub>t</sub></em>, ou número de reprodução eficaz, é o número médio de contágios
+        description={`O <em>R<sub>t</sub></em>, ou número de reprodução eficaz, é o número médio de contágios
           causados por cada pessoa infectada em um determinado ponto no tempo,
           levando em consideração mudanças no nosso comportamento (quarentena,
           uso de máscaras, home office, etc). Um <em>R<sub>t</sub></em> de 3–4 infectará
           virtualmente toda a população, enquanto um <em>R<sub>t</sub></em> de 1.5 pode ainda
           alcançar 60% da população. Somente se o <em>R<sub>t</sub></em> for menor do que 1, a
-          epidemia irá diminuir de tamanho até ser eliminada."
-      ></Section>
+          epidemia irá diminuir de tamanho até ser eliminada.`}
+      />
       <Section
         title="Comparação entre estados"
         description="Para fazer uma comparação entre estados, mostramos a última estimativa de <em>R<sub>t</sub></em> de cada estado no gráfico a seguir, com a incerteza associada.<br>Os gráficos estão ordenados do melhor para o pior usando a estimativa mais provável do modelo."
       >
-        <div
-          style={{
-            display: 'flex',
-            width: '100%',
-            position: 'relative',
-            height: 500,
-            overflowX: 'auto',
-            overflowY: 'hidden',
-          }}
-        >
-          <Line data={barChartData} />
+        <div className={classes.barChartWrapper}>
+          {canRender(barChartData) ? <Line data={barChartData} /> : <Loader />}
         </div>
       </Section>
       <Section
@@ -93,7 +88,7 @@ const Home = () => {
           alignItems="center"
           spacing={4}
         >
-          <RiskList data={listData} />
+          {canRender(listData) ? <RiskList data={listData} /> : <Loader />}
         </Grid>
       </Section>
     </>
