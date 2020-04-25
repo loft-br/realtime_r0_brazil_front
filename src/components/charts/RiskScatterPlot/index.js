@@ -1,77 +1,68 @@
 import React from 'react';
 
 import { ScatterPlot } from '@nivo/scatterplot';
-import { Grid, Typography } from '@material-ui/core';
 
-import { commonProps } from './RiskScatterPlot.styles';
-
-import { BRAZIL_STATES, formatDate, getLastRtValue } from '../../../utils';
+import { formatDate } from '../../../utils';
 
 import { AreaLayerNegative, AreaLayerPositive } from '../AreaLayer';
 import LineLayer from '../LineLayer';
-import Tooltip from '../Tooltip';
+import TooltipScatter from './TooltipScatter';
 
-import useStyles from './RiskScatterPlot.styles';
-
-const TooltipScatter = ({ data }) => (
-  <Tooltip data={data}>
-    <Typography variant="caption">
-      <strong>Dia {formatDate(data?.date)}</strong>
-    </Typography>
-  </Tooltip>
-);
+const commonProps = {
+  width: 300,
+  height: 200,
+  margin: { top: 10, right: 30, bottom: 10, left: 10 },
+  nodeSize: 5,
+  blendMode: 'normal',
+  yScale: {
+    type: 'linear',
+    max: 5,
+  },
+  xScale: { type: 'time' },
+  yFormat: (d) => d.toFixed(2),
+  enableGridX: false,
+  axisBottom: null,
+  axisTop: null,
+  axisLeft: null,
+  axisRight: {
+    orient: 'left',
+    tickSize: 5,
+    tickValues: 5,
+    tickPadding: 5,
+    tickRotation: 0,
+    format: (d) => d.toFixed(1),
+  },
+  legends: [
+    {
+      anchor: 'bottom-right',
+      direction: 'row',
+      translateY: 60,
+      itemWidth: 130,
+      itemHeight: 12,
+      symbolSize: 12,
+      symbolShape: 'circle',
+    },
+  ],
+  colors: '#E17272',
+  layers: [
+    AreaLayerPositive,
+    AreaLayerNegative,
+    'grid',
+    'axes',
+    'nodes',
+    LineLayer,
+    'mesh',
+  ],
+  useMesh: true,
+  xFormat: formatDate,
+};
 
 const RiskScatterPlot = ({ data }) => (
   <ScatterPlot
     {...commonProps}
     data={data}
-    layers={[
-      AreaLayerPositive,
-      AreaLayerNegative,
-      'grid',
-      'axes',
-      'nodes',
-      LineLayer,
-      'mesh',
-    ]}
-    legends={[]}
     tooltip={({ node }) => <TooltipScatter data={node?.data} />}
-    useMesh
-    xFormat={formatDate}
-    yFormat={(d) => d}
   />
 );
 
-const RiskList = ({ data }) => {
-  const classes = useStyles();
-
-  return (
-    <>
-      {Object.keys(data).map((id) => (
-        <Grid
-          container
-          alignItems="center"
-          direction="column"
-          item
-          key={id}
-          lg={3}
-          xs
-        >
-          <header className={classes.header}>
-            <Typography variant="h6">{BRAZIL_STATES[id]}</Typography>
-            <Typography
-              variant="h6"
-              color={getLastRtValue(data, id) < 1 ? 'secondary' : 'error'}
-            >
-              <strong>{getLastRtValue(data, id)}</strong>
-            </Typography>
-          </header>
-          <RiskScatterPlot data={[{ id, data: data[id] }]} />
-        </Grid>
-      ))}
-    </>
-  );
-};
-
 export default RiskScatterPlot;
-export { RiskList };
