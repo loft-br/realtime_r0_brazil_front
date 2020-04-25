@@ -2,7 +2,7 @@ import React from 'react';
 import Typography from '../Typography';
 import useStyles from './Section.styles';
 
-const Section = ({ children, description, title }) => {
+const Section = ({ children = null, description, title }) => {
   const classes = useStyles();
 
   return (

@@ -21,6 +21,14 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     marginTop: 80,
   },
+  barChartWrapper: {
+    display: 'flex',
+    width: '100%',
+    position: 'relative',
+    height: 500,
+    overflowX: 'auto',
+    overflowY: 'hidden',
+  },
 }));
 
 export default useStyles;

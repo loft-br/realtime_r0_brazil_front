@@ -58,7 +58,7 @@ const CustomSymbol = ({ size, color, borderWidth, borderColor, ...rest }) => {
   );
 };
 
-const Line = ({ data, width }) => {
+const Line = ({ data }) => {
   const mapper = {
     positive: [],
     negative: [],
@@ -143,8 +143,6 @@ const Line = ({ data, width }) => {
         'axes',
         'markers',
         'areas',
-        'bars',
-        'crosshair',
         'lines',
         'points',
         'slices',
