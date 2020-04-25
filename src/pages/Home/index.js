@@ -15,17 +15,9 @@ const Home = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const [listData, setListData] = useState(null);
-  const [barChartData, setBarChartData] = useState(null);
-
   const loading = useSelector((state) => state.loading);
   const error = useSelector((state) => state.error);
   const states = useSelector((state) => state.data?.states);
-
-  const updateData = useCallback(() => {
-    setListData(formatListData(states));
-    setBarChartData(formatBarChartData(states));
-  }, [states]);
 
   const canRender = useCallback(
     (data) => !error && !loading && data !== undefined && data !== null,
@@ -45,8 +37,6 @@ const Home = () => {
     getData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  useEffect(() => updateData(), [updateData]);
 
   if (error) {
     return (
@@ -74,7 +64,7 @@ const Home = () => {
         description="Para fazer uma comparação entre estados, mostramos a última estimativa de <em>R<sub>t</sub></em> de cada estado no gráfico a seguir, com a incerteza associada.<br>Os gráficos estão ordenados do melhor para o pior usando a estimativa mais provável do modelo."
       >
         <div className={classes.barChartWrapper}>
-          {canRender(barChartData) ? <Line data={barChartData} /> : <Loader />}
+          {canRender(states) ? <Line data={states} /> : <Loader />}
         </div>
       </Section>
       <Section
@@ -88,7 +78,7 @@ const Home = () => {
           alignItems="center"
           spacing={4}
         >
-          {canRender(listData) ? <RiskList data={listData} /> : <Loader />}
+          {canRender(states) ? <RiskList data={states} /> : <Loader />}
         </Grid>
       </Section>
     </>

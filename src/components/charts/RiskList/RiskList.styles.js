@@ -9,6 +9,19 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
+
+  root: {
+    '& button': {
+      opacity: 0,
+      visibility: 'hidden',
+    },
+
+    '&:hover button': {
+      opacity: 1,
+      visibility: 'visible',
+      transition: 'opacity 0.5s ease-in-out',
+    },
+  },
 }));
 
 export default useStyles;

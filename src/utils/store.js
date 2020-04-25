@@ -38,7 +38,7 @@ export const getLastRtValue = (data = {}, id = '') =>
 
 export const formatListData = (data) => {
   return data?.reduce((current, next) => {
-    const [id, x, y, low, high] = next;
+    const [id, x, y, low, high, newCases, smoothedCases] = next;
     const date = dateObjectBuider(x);
 
     return {
@@ -51,6 +51,52 @@ export const formatListData = (data) => {
         y,
         low,
         high,
+        newCases,
+        smoothedCases,
+      }),
+    };
+  }, {});
+};
+
+export const formatNewCasesData = (data) => {
+  return data?.reduce((current, next) => {
+    const [id, x, rt, low, high, newCases, smoothedCases] = next;
+    const date = dateObjectBuider(x);
+
+    return {
+      ...current,
+      [id]: (current[id] || []).concat({
+        id,
+        state: id,
+        date,
+        x: date,
+        rt,
+        low,
+        high,
+        y: newCases,
+        smoothedCases,
+      }),
+    };
+  }, {});
+};
+
+export const formatSmoothedCasesData = (data) => {
+  return data?.reduce((current, next) => {
+    const [id, x, rt, low, high, newCases, smoothedCases] = next;
+    const date = dateObjectBuider(x);
+
+    return {
+      ...current,
+      [id]: (current[id] || []).concat({
+        id,
+        state: id,
+        date,
+        x: date,
+        rt,
+        low,
+        high,
+        newCases,
+        y: smoothedCases,
       }),
     };
   }, {});

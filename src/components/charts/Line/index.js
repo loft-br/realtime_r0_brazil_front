@@ -3,6 +3,7 @@ import { ResponsiveLine } from '@nivo/line';
 
 import LineLayer from 'components/charts/LineLayer';
 import TooltipLine from './TooltipLine';
+import { formatBarChartData } from 'utils';
 
 const commonProperties = {
   width: 1200,
@@ -58,7 +59,9 @@ const CustomSymbol = ({ size, color, borderWidth, borderColor, ...rest }) => {
   );
 };
 
-const Line = ({ data }) => {
+const Line = ({ data: content }) => {
+  const data = formatBarChartData(content);
+
   const mapper = {
     positive: [],
     negative: [],

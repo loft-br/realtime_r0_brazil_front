@@ -1,6 +1,5 @@
-import RiskBar from './RiskBar';
-import Line from './Line';
-import RiskList from './RiskList';
-import RiskScatterPlot from './RiskScatterPlot';
-
-export { RiskList, Line, RiskBar, RiskScatterPlot };
+export { default as RiskBar } from './RiskBar';
+export { default as Line } from './Line';
+export { default as RiskList } from './RiskList';
+export { default as CasesLine } from './CasesLine';
+export { default as RiskScatterPlot } from './RiskScatterPlot';
