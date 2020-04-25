@@ -1,11 +1,13 @@
 import React from 'react';
-
 import { ScatterPlot } from '@nivo/scatterplot';
 
-import { formatDate } from '../../../utils';
+import { formatDate } from 'utils';
 
-import { AreaLayerNegative, AreaLayerPositive } from '../AreaLayer';
-import LineLayer from '../LineLayer';
+import {
+  AreaLayerNegative,
+  AreaLayerPositive,
+} from 'components/charts/AreaLayer';
+import LineLayer from 'components/charts/LineLayer';
 import TooltipScatter from './TooltipScatter';
 
 const commonProps = {

@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { Typography, Paper } from '@material-ui/core';
-import Rt from '../../Rt';
-import Thumb from '../../Thumb';
+import Rt from 'components/Rt';
+import Thumb from 'components/Thumb';
 
 import useStyles from './Tooltip.styles';
 

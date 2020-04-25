@@ -1,7 +1,7 @@
 import React from 'react';
 import { ResponsiveLine } from '@nivo/line';
 
-import LineLayer from '../LineLayer';
+import LineLayer from 'components/charts/LineLayer';
 import TooltipLine from './TooltipLine';
 
 const commonProperties = {

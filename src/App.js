@@ -4,10 +4,10 @@ import { PersistGate } from 'redux-persist/integration/react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
 
-import Layout from './components/Layout';
-import Routes from './routes';
-import configureStore from './store';
-import theme from './theme';
+import Layout from 'components/Layout';
+import Routes from 'routes';
+import configureStore from 'store';
+import theme from 'theme';
 
 function App() {
   const { persistor, store } = configureStore();

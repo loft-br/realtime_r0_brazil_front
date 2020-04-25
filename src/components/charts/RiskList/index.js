@@ -1,9 +1,9 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
 
-import { BRAZIL_STATES, getLastRtValue } from '../../../utils';
+import { BRAZIL_STATES, getLastRtValue } from 'utils';
 
-import RiskScatterPlot from '../RiskScatterPlot';
+import RiskScatterPlot from 'components/charts/RiskScatterPlot';
 
 import useStyles from './RiskList.styles';
 

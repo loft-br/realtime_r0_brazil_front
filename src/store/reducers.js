@@ -1,5 +1,5 @@
+import { fullFormatDate, getLastTimestamp } from 'utils';
 import actionTypes from './action_types';
-import { fullFormatDate, getLastTimestamp } from '../utils';
 
 const inicialState = {
   data: null,

@@ -2,14 +2,14 @@ import React from 'react';
 import { Container } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 
-import AppBar from '../AppBar';
-import Footer from '../Footer';
-import Typography from '../Typography';
+import AppBar from 'components/AppBar';
+import Footer from 'components/Footer';
+import Typography from 'components/Typography';
 import useStyles from './Layout.styles';
 
 const Layout = ({ children }) => {
   const classes = useStyles();
-  const formattedDate = useSelector(state => state.lastUpdateTime);
+  const formattedDate = useSelector((state) => state?.lastUpdateTime);
 
   return (
     <>

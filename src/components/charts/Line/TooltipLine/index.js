@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { Typography } from '@material-ui/core';
-import { BRAZIL_STATES } from '../../../../utils';
-import Tooltip from '../../Tooltip';
+import { BRAZIL_STATES } from 'utils';
+import Tooltip from 'components/charts/Tooltip';
 
 const TooltipLine = ({ data }) => (
   <Tooltip data={data}>

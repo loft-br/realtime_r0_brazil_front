@@ -1,5 +1,5 @@
 import React from 'react';
-import Typography from '../Typography';
+import Typography from 'components/Typography';
 import useStyles from './Section.styles';
 
 const Section = ({ children = null, description, title }) => {

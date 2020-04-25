@@ -1,4 +1,4 @@
-import { get } from '../utils';
+import { get } from 'utils';
 import actionTypes from './action_types';
 
 export const getModelResults = () => async (dispatch) => {

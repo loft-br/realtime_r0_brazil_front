@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Typography, CircularProgress, Grid } from '@material-ui/core';
 
-import { RiskList, Line } from '../../components/charts/';
-import Section from '../../components/Section';
+import { RiskList, Line } from 'components/charts/';
+import Section from 'components/Section';
 
-import { getModelResults } from '../../store/actions';
-import { formatListData, formatBarChartData } from '../../utils';
+import { getModelResults } from 'store/actions';
+import { formatListData, formatBarChartData } from 'utils';
 
 import useStyles from './Home.styles';
 
