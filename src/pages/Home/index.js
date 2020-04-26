@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Typography, Grid } from '@material-ui/core';
 
@@ -7,7 +7,6 @@ import Loader from 'components/Loader';
 import Section from 'components/Section';
 
 import { getModelResults } from 'store/actions';
-import { formatListData, formatBarChartData } from 'utils';
 
 import useStyles from './Home.styles';
 
@@ -73,9 +72,9 @@ const Home = () => {
       >
         <Grid
           container
-          direction="row"
-          justify="flex-start"
+          direction="column"
           alignItems="center"
+          justify="center"
           spacing={4}
         >
           {canRender(states) ? <RiskList data={states} /> : <Loader />}
