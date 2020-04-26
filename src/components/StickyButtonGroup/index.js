@@ -41,21 +41,25 @@ const StickyButtonGroup = ({ chartActive, onClick }) => {
           aria-label="Escolha o tipo de dado para visualizar no gráfico"
         >
           <Button
-            className={classes.button}
+            className={classnames({ [classes.button]: chartActive !== 'rt' })}
             variant={chartActive === 'rt' ? 'contained' : 'outlined'}
             onClick={() => onClick('rt')}
           >
             Rt
           </Button>
           <Button
-            className={classes.button}
+            className={classnames({
+              [classes.button]: chartActive !== 'cases',
+            })}
             variant={chartActive === 'cases' ? 'contained' : 'outlined'}
             onClick={() => onClick('cases')}
           >
             Casos
           </Button>
           <Button
-            className={classes.button}
+            className={classnames({
+              [classes.button]: chartActive !== 'death',
+            })}
             variant={chartActive === 'death' ? 'contained' : 'outlined'}
             onClick={() => onClick('death')}
           >

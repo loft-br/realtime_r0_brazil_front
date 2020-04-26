@@ -5,6 +5,10 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     width: '100vw',
     minHeight: 116,
+
+    [theme.breakpoints.up('sm')]: {
+      width: '100%',
+    },
   },
   root: {
     display: 'flex',
@@ -15,6 +19,10 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     zIndex: 999,
     padding: theme.spacing(5, 0),
+
+    [theme.breakpoints.up('sm')]: {
+      width: '100%',
+    },
   },
 
   fixed: {
