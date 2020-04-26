@@ -58,9 +58,7 @@ const CasesLine = ({ data }) => (
     useMesh
     layers={['grid', DashedLine, 'axes', 'mesh']}
     colors={['#191F23', '#aaa']}
-    tooltip={({ point, serieId }) =>
-      serieId === 'smoothed' ? null : <TooltipCaseLine data={point?.data} />
-    }
+    tooltip={({ point }) => <TooltipCaseLine data={point?.data} />}
   />
 );
 

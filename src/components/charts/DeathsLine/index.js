@@ -58,9 +58,7 @@ const DeathsLine = ({ data }) => (
     useMesh
     layers={['grid', DashedLine, 'axes', 'mesh']}
     colors={['#20A483', '#aaa']}
-    tooltip={({ point, serieId }) =>
-      serieId === 'smoothed' ? null : <TooltipDeathsLine data={point?.data} />
-    }
+    tooltip={({ point }) => <TooltipDeathsLine data={point?.data} />}
   />
 );
 
