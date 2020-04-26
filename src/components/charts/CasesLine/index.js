@@ -50,7 +50,7 @@ const DashedLine = ({ series, lineGenerator, xScale, yScale }) => {
   ));
 };
 
-const RiskScatterPlot = ({ data }) => (
+const CasesLine = ({ data }) => (
   <Line
     {...commonProps}
     data={data}
@@ -62,4 +62,4 @@ const RiskScatterPlot = ({ data }) => (
   />
 );
 
-export default RiskScatterPlot;
+export default CasesLine;

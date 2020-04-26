@@ -16,12 +16,12 @@ const TooltipCaseLine = ({ data = {} }) => {
       </Typography>
       <br />
       <Typography variant="caption">
-        Novos casos: <strong>{data?.y}</strong>
+        Novos casos: <strong>{data?.newCases ?? data?.y}</strong>
       </Typography>
       <br />
       <Typography variant="caption">
         Média móvel ({daysAvg}d):{' '}
-        <strong>{(data?.y / daysAvg).toFixed(1)}</strong>
+        <strong>{data?.smoothedCases ?? data?.y}</strong>
       </Typography>
     </Paper>
   );
