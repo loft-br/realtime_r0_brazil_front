@@ -1,15 +1,30 @@
 import React from 'react';
 
-import { Typography } from '@material-ui/core';
+import { Typography, Paper } from '@material-ui/core';
 import { formatDate } from 'utils';
-import Tooltip from 'components/charts/Tooltip';
 
-const TooltipCaseLine = ({ data }) => (
-  <Tooltip data={data}>
-    <Typography variant="caption">
-      <strong>Dia {formatDate(data?.date)}</strong>
-    </Typography>
-  </Tooltip>
-);
+import useStyles from './TooltipCaseLine.styles';
+
+const TooltipCaseLine = ({ data = {} }) => {
+  const classes = useStyles();
+  const daysAvg = 7;
+
+  return (
+    <Paper variant="outlined" elevation={3} className={classes.root}>
+      <Typography variant="caption">
+        <strong>Dia {formatDate(data?.date)}</strong>
+      </Typography>
+      <br />
+      <Typography variant="caption">
+        Novos casos: <strong>{data?.y}</strong>
+      </Typography>
+      <br />
+      <Typography variant="caption">
+        Média móvel ({daysAvg}d):{' '}
+        <strong>{(data?.y / daysAvg).toFixed(1)}</strong>
+      </Typography>
+    </Paper>
+  );
+};
 
 export default TooltipCaseLine;

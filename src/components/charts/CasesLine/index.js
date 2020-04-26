@@ -8,7 +8,7 @@ const commonProps = {
   height: 200,
   margin: { top: 10, right: 30, bottom: 10, left: 10 },
   animate: true,
-  enableSlices: 'x',
+  enableGridX: false,
   axisBottom: null,
   axisTop: null,
   axisLeft: null,
@@ -21,30 +21,43 @@ const commonProps = {
   },
 };
 
+const styleById = {
+  new: {
+    strokeDasharray: '1, 3',
+    strokeWidth: 2,
+    strokeLinejoin: 'round',
+    strokeLinecap: 'round',
+  },
+  default: {
+    strokeWidth: 2,
+  },
+};
+
+const DashedLine = ({ series, lineGenerator, xScale, yScale }) => {
+  return series.map(({ id, data, color }) => (
+    <path
+      key={id}
+      d={lineGenerator(
+        data.map((d) => ({
+          x: xScale(d.data.x),
+          y: yScale(d.data.y),
+        }))
+      )}
+      fill="none"
+      stroke={color}
+      style={styleById[id] || styleById.default}
+    />
+  ));
+};
+
 const RiskScatterPlot = ({ data }) => (
   <Line
     {...commonProps}
     data={data}
     curve="monotoneX"
-    xScale={{
-      type: 'time',
-    }}
-    yScale={{
-      type: 'linear',
-      min: 0,
-    }}
     useMesh
-    layers={[
-      'grid',
-      'axes',
-      'markers',
-      'areas',
-      'lines',
-      'points',
-      'mesh',
-      'slices',
-    ]}
-    colors={['#aaa', '#19857b']}
+    layers={['grid', DashedLine, 'axes', 'mesh']}
+    colors={['#191F23', '#aaa']}
     tooltip={({ point }) => <TooltipCaseLine data={point?.data} />}
   />
 );

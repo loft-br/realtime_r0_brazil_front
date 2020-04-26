@@ -120,7 +120,6 @@ const Line = ({ data: content }) => {
       }}
       pointLabelYOffset={-20}
       enableGridX={false}
-      colors={['#ff774a', '#19857b']}
       xScale={{
         type: 'linear',
       }}
