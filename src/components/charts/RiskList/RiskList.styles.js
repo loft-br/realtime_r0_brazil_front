@@ -10,10 +10,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
 
-  navigation: {
-    margin: theme.spacing(5, 0),
-  },
-
   root: {
     [theme.breakpoints.up('md')]: {
       '& button': {
