@@ -7,6 +7,7 @@ import useStyles from './TooltipCaseLine.styles';
 
 const TooltipCaseLine = ({ data = {} }) => {
   const classes = useStyles();
+  const daysAvg = 7;
 
   return (
     <Paper variant="outlined" elevation={3} className={classes.root}>
@@ -15,7 +16,11 @@ const TooltipCaseLine = ({ data = {} }) => {
       </Typography>
       <br />
       <Typography variant="caption">
-        Novos casos: <strong>{data?.y}</strong> (7d)
+        Novos casos: <strong>{data?.y}</strong>
+      </Typography>
+      <br />
+      <Typography variant="caption">
+        Média: <strong>{(data?.y / daysAvg).toFixed(1)}</strong> ({daysAvg}d)
       </Typography>
     </Paper>
   );
