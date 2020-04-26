@@ -50,7 +50,7 @@ const DashedLine = ({ series, lineGenerator, xScale, yScale }) => {
   ));
 };
 
-const RiskScatterPlot = ({ data }) => (
+const CasesLine = ({ data }) => (
   <Line
     {...commonProps}
     data={data}
@@ -58,8 +58,10 @@ const RiskScatterPlot = ({ data }) => (
     useMesh
     layers={['grid', DashedLine, 'axes', 'mesh']}
     colors={['#191F23', '#aaa']}
-    tooltip={({ point }) => <TooltipCaseLine data={point?.data} />}
+    tooltip={({ point, serieId }) =>
+      serieId === 'smoothed' ? null : <TooltipCaseLine data={point?.data} />
+    }
   />
 );
 
-export default RiskScatterPlot;
+export default CasesLine;
