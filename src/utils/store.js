@@ -113,7 +113,7 @@ export const formatNewDeathsData = (data) => {
       newCases,
       smoothedCases,
       newDeaths,
-      smootheDeaths,
+      smoothedDeaths,
     ] = next;
     const date = dateObjectBuider(x);
 
@@ -130,7 +130,7 @@ export const formatNewDeathsData = (data) => {
         newCases,
         smoothedCases,
         y: newDeaths,
-        smootheDeaths,
+        smoothedDeaths,
       }),
     };
   }, {});
@@ -147,7 +147,7 @@ export const formatSmoothedDeathsData = (data) => {
       newCases,
       smoothedCases,
       newDeaths,
-      smootheDeaths,
+      smoothedDeaths,
     ] = next;
     const date = dateObjectBuider(x);
 
@@ -164,7 +164,7 @@ export const formatSmoothedDeathsData = (data) => {
         newCases,
         smoothedCases,
         newDeaths,
-        y: smootheDeaths,
+        y: smoothedDeaths,
       }),
     };
   }, {});
