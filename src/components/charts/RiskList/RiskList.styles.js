@@ -10,10 +10,16 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
 
+  navigation: {
+    margin: theme.spacing(5, 0),
+  },
+
   root: {
-    '& button': {
-      opacity: 0,
-      visibility: 'hidden',
+    [theme.breakpoints.up('md')]: {
+      '& button': {
+        opacity: 0,
+        visibility: 'hidden',
+      },
     },
 
     '&:hover button': {
