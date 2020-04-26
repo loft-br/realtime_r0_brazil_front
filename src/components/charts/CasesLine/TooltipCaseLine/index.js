@@ -20,7 +20,8 @@ const TooltipCaseLine = ({ data = {} }) => {
       </Typography>
       <br />
       <Typography variant="caption">
-        Média: <strong>{(data?.y / daysAvg).toFixed(1)}</strong> ({daysAvg}d)
+        Média móvel ({daysAvg}d):{' '}
+        <strong>{(data?.y / daysAvg).toFixed(1)}</strong>
       </Typography>
     </Paper>
   );
