@@ -1,61 +1,35 @@
 import React, { memo, useState } from 'react';
-import { Button, ButtonGroup, Grid, Typography } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 
 import {
   BRAZIL_STATES,
   getLastRtValue,
   formatListData,
   formatNewCasesData,
+  formatNewDeathsData,
   formatSmoothedCasesData,
+  formatSmoothedDeathsData,
 } from 'utils';
 
-import { CasesLine, RiskScatterPlot } from 'components/charts';
+import { CasesLine, DeathsLine, RiskScatterPlot } from 'components/charts';
+import StickyButtonGroup from 'components/StickyButtonGroup';
 
 import useStyles from './RiskList.styles';
-
-const butonLabel = {
-  cases: 'Ver Rt',
-  rt: 'Ver casos',
-};
 
 const RiskList = ({ data: content }) => {
   const classes = useStyles();
   const rtData = formatListData(content);
   const newCases = formatNewCasesData(content);
   const smoothedCases = formatSmoothedCasesData(content);
+  const newDeaths = formatNewDeathsData(content);
+  const smoothedDeaths = formatSmoothedDeathsData(content);
 
   const [chartActive, setChartActive] = useState('rt');
   const handleClick = (value) => setChartActive(value);
 
   return (
     <>
-      <ButtonGroup
-        className={classes.navigation}
-        color="secondary"
-        variant="outlined"
-        aria-label="Escolha o tipo de dado para visualizar no gráfico"
-      >
-        <Button
-          variant={chartActive === 'rt' ? 'contained' : 'outlined'}
-          onClick={() => handleClick('rt')}
-        >
-          Rt
-        </Button>
-        <Button
-          variant={chartActive === 'cases' ? 'contained' : 'outlined'}
-          onClick={() => handleClick('cases')}
-        >
-          Casos
-        </Button>
-        <Button
-          variant={chartActive === 'death' ? 'contained' : 'outlined'}
-          disabled
-          onClick={() => handleClick('death')}
-        >
-          Óbitos{` `}
-          <sub>(em breve)</sub>
-        </Button>
-      </ButtonGroup>
+      <StickyButtonGroup chartActive={chartActive} onClick={handleClick} />
       <Grid
         container
         direction="row"
@@ -76,7 +50,9 @@ const RiskList = ({ data: content }) => {
             <BoxChart
               chartActive={chartActive}
               newCases={newCases}
+              newDeaths={newDeaths}
               smoothedCases={smoothedCases}
+              smoothedDeaths={smoothedDeaths}
               rtData={rtData}
               id={id}
             />
@@ -87,16 +63,21 @@ const RiskList = ({ data: content }) => {
   );
 };
 
-const BoxChart = ({ chartActive, newCases, smoothedCases, rtData, id }) => {
+const BoxChart = ({
+  chartActive,
+  id,
+  newCases,
+  newDeaths,
+  rtData,
+  smoothedCases,
+  smoothedDeaths,
+}) => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <header className={classes.header}>
         <Typography variant="h6">{BRAZIL_STATES[id]}</Typography>
-        {/* <Button size="small" onClick={handleClick}>
-          {butonLabel[chartActive] || ''}
-        </Button> */}
         <Typography
           variant="h6"
           color={getLastRtValue(rtData, id) < 1 ? 'secondary' : 'error'}
@@ -115,7 +96,14 @@ const BoxChart = ({ chartActive, newCases, smoothedCases, rtData, id }) => {
               ]}
             />
           ),
-          death: null,
+          death: (
+            <DeathsLine
+              data={[
+                { id: 'smoothed', data: smoothedDeaths[id] },
+                { id: 'new', data: newDeaths[id] },
+              ]}
+            />
+          ),
         }[chartActive || 'rt']
       }
     </div>

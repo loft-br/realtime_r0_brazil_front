@@ -102,6 +102,74 @@ export const formatSmoothedCasesData = (data) => {
   }, {});
 };
 
+export const formatNewDeathsData = (data) => {
+  return data?.reduce((current, next) => {
+    const [
+      id,
+      x,
+      rt,
+      low,
+      high,
+      newCases,
+      smoothedCases,
+      newDeaths,
+      smootheDeaths,
+    ] = next;
+    const date = dateObjectBuider(x);
+
+    return {
+      ...current,
+      [id]: (current[id] || []).concat({
+        id,
+        state: id,
+        date,
+        x: date,
+        rt,
+        low,
+        high,
+        newCases,
+        smoothedCases,
+        y: newDeaths,
+        smootheDeaths,
+      }),
+    };
+  }, {});
+};
+
+export const formatSmoothedDeathsData = (data) => {
+  return data?.reduce((current, next) => {
+    const [
+      id,
+      x,
+      rt,
+      low,
+      high,
+      newCases,
+      smoothedCases,
+      newDeaths,
+      smootheDeaths,
+    ] = next;
+    const date = dateObjectBuider(x);
+
+    return {
+      ...current,
+      [id]: (current[id] || []).concat({
+        id,
+        state: id,
+        date,
+        x: date,
+        rt,
+        low,
+        high,
+        newCases,
+        smoothedCases,
+        newDeaths,
+        y: smootheDeaths,
+      }),
+    };
+  }, {});
+};
+
 export const formatBarChartData = (data) => {
   const formattedData = formatListData(data) || {};
   return Object.keys(formattedData)?.map(
