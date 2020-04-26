@@ -47,13 +47,14 @@ const RiskList = ({ data: content }) => {
         >
           Casos
         </Button>
-        {/* <Button
+        <Button
           variant={chartActive === 'death' ? 'contained' : 'outlined'}
           disabled
           onClick={() => handleClick('death')}
         >
-          Óbitos (em breve)
-        </Button> */}
+          Óbitos{` `}
+          <sub>(em breve)</sub>
+        </Button>
       </ButtonGroup>
       <Grid
         container
