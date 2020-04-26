@@ -34,17 +34,6 @@ const commonProps = {
     tickRotation: 0,
     format: (d) => d.toFixed(1),
   },
-  legends: [
-    {
-      anchor: 'bottom-right',
-      direction: 'row',
-      translateY: 60,
-      itemWidth: 130,
-      itemHeight: 12,
-      symbolSize: 12,
-      symbolShape: 'circle',
-    },
-  ],
   colors: '#E17272',
   layers: [
     AreaLayerPositive,
