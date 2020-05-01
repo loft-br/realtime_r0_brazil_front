@@ -1,5 +1,9 @@
-export const formatDate = (date, options) =>
-  new Intl.DateTimeFormat('pt-BR', options).format(date);
+export const isDate = (date) => date instanceof Date && !isNaN(date.valueOf());
+
+export const formatDate = (date, options) => {
+  if (!isDate(date)) date = new Date(date);
+  return new Intl.DateTimeFormat('pt-BR', options).format(date);
+};
 
 export const fullFormatDate = (date) =>
   formatDate(date, { month: 'long', day: 'numeric', year: 'numeric' });
