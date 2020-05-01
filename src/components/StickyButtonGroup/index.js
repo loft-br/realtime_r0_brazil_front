@@ -22,12 +22,13 @@ const StickyButtonGroup = ({ chartActive, onClick }) => {
       };
 
       const observer = new IntersectionObserver(setScrolled, options);
+      const buttonRef = button.current;
 
-      if (button && button.current) {
-        observer.observe(button.current);
+      if (buttonRef) {
+        observer.observe(buttonRef);
       }
 
-      return () => observer.unobserve(button.current);
+      return () => observer.unobserve(buttonRef);
     },
     [button, setScrolled]
   );
