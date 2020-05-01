@@ -9,8 +9,6 @@ const TooltipDeathsLine = ({ data = {} }) => {
   const classes = useStyles();
   const daysAvg = 7;
 
-  console.log(data);
-
   return (
     <Paper variant="outlined" elevation={3} className={classes.root}>
       <Typography variant="caption">

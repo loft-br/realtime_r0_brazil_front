@@ -6,7 +6,7 @@ export const getModelResults = () => async (dispatch) => {
 
   return await get('/get_model_results')
     .then((res) => {
-      const { data } = res?.data || {};
+      const data = res?.data || {};
 
       dispatch({
         type: actionTypes.LOAD_MODEL_SUCCESS,
