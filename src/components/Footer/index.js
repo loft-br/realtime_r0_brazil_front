@@ -108,6 +108,80 @@ const Footer = () => {
       </div>
       <div className={classes.section}>
         <Typography className={classes.sectionTitle} variant="h5">
+          O{' '}
+          <em>
+            R<sub>t</sub>
+          </em>{' '}
+          do Brasil pode ser menor que o{' '}
+          <em>
+            R<sub>t</sub>
+          </em>{' '}
+          dos demais estados?
+        </Typography>
+        <Typography variant="body1">
+          Pode. É uma consequência do algoritmo, que tende a ser “conservador”,
+          especialmente em estados menores. Dois pontos principais explicam esse
+          comportamento:
+        </Typography>
+        <ol>
+          <li>
+            <Typography variant="body1">
+              Sem coletar nenhum dado, nossa melhor estimativa é{' '}
+              <em>
+                R<sub>t</sub>
+              </em>{' '}
+              = R0. Desta forma, escolhemos o R0 como a “premissa de partida” do
+              nosso algoritmo, com R0 = 4,{' '}
+              <Link
+                target="_blank"
+                color="primary"
+                href="https://github.com/3778/COVID-19"
+              >
+                no limite superior das estimativas
+              </Link>
+              . Isso faz com que sejamos conservadores: precisamos de evidências
+              sólidas para refutar a premissa de partida e ter confiança em um
+              valor baixo de{' '}
+              <em>
+                R<sub>t</sub>
+              </em>{' '}
+              de testes.
+            </Typography>
+          </li>
+          <li>
+            <Typography variant="body1">
+              Quanto mais dados coletamos, mais rápido podemos refutar a
+              premissa de partida. Ou seja, uma queda no número de casos vai se
+              refletir mais rápido em uma queda no{' '}
+              <em>
+                R<sub>t</sub>
+              </em>{' '}
+              quando temos um número absoluto de casos maior (pois teremos mais
+              evidências para confirmar essa queda). Isso faz com que o{' '}
+              <em>
+                R<sub>t</sub>
+              </em>{' '}
+              de estados mais populosos (e do Brasil como um todo) reaja mais
+              rápido a mudanças na evolução da pandemia.
+            </Typography>
+          </li>
+        </ol>
+        <Typography variant="body1">
+          Dessa forma, mesmo que o algoritmo aponte, por exemplo,{' '}
+          <em>
+            R<sub>t</sub>
+          </em>{' '}
+          {`<`} 1 no Brasil como um todo, os outros estados podem resistir com{' '}
+          <em>
+            R<sub>t</sub>
+          </em>{' '}
+          {`>`} 1. Dada a gravidade da situação, decidimos manter o viés
+          conservador, para que tomemos decisões com base em evidências
+          numerosas e sólidas.
+        </Typography>
+      </div>
+      <div className={classes.section}>
+        <Typography className={classes.sectionTitle} variant="h5">
           Limitações conhecidas da metodologia
         </Typography>
         <ul>
