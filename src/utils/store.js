@@ -1,112 +1,129 @@
 import { dateObjectBuider } from 'utils';
 
 export const BRAZIL_STATES = {
-  AC: 'Acre',
-  AL: 'Alagoas',
-  AP: 'Amapá',
-  AM: 'Amazonas',
-  BA: 'Bahia',
-  CE: 'Ceará',
-  DF: 'Distrito Federal',
-  ES: 'Espírito Santo',
-  GO: 'Goiás',
-  MA: 'Maranhão',
-  MT: 'Mato Grosso',
-  MS: 'Mato Grosso do Sul',
-  MG: 'Minas Gerais',
-  PA: 'Pará',
-  PB: 'Paraíba',
-  PR: 'Paraná',
-  PE: 'Pernambuco',
-  PI: 'Piauí',
-  RJ: 'Rio de Janeiro',
-  RN: 'Rio Grande do Norte',
-  RS: 'Rio Grande do Sul',
-  RO: 'Rondônia',
-  RR: 'Roraima',
-  SC: 'Santa Catarina',
-  SP: 'São Paulo',
-  SE: 'Sergipe',
-  TO: 'Tocantins',
-  Brazil: 'Brasil',
+  AC: {
+    name: 'Acre',
+    region: 'norte',
+  },
+  AL: {
+    name: 'Alagoas',
+    region: 'nordeste',
+  },
+  AP: {
+    name: 'Amapá',
+    region: 'norte',
+  },
+  AM: {
+    name: 'Amazonas',
+    region: 'norte',
+  },
+  BA: {
+    name: 'Bahia',
+    region: 'nordeste',
+  },
+  CE: {
+    name: 'Ceará',
+    region: 'nordeste',
+  },
+  DF: {
+    name: 'Distrito Federal',
+    region: 'centro oeste',
+  },
+  ES: {
+    name: 'Espírito Santo',
+    region: 'sudeste',
+  },
+  GO: {
+    name: 'Goiás',
+    region: 'centro oeste',
+  },
+  MA: {
+    name: 'Maranhão',
+    region: 'nordeste',
+  },
+  MT: {
+    name: 'Mato Grosso',
+    region: 'centro oeste',
+  },
+  MS: {
+    name: 'Mato Grosso do Sul',
+    region: 'centro oeste',
+  },
+  MG: {
+    name: 'Rio de Janeiro',
+    region: 'sudeste',
+  },
+  PA: {
+    name: 'Pará',
+    region: 'norte',
+  },
+  PB: {
+    name: 'Paraíba',
+    region: 'nordeste',
+  },
+  PR: {
+    name: 'Paraná',
+    region: 'sul',
+  },
+  PE: {
+    name: 'Pernambuco',
+    region: 'nordeste',
+  },
+  PI: {
+    name: 'Piauí',
+    region: 'nordeste',
+  },
+  RJ: {
+    name: 'Rio de Janeiro',
+    region: 'sudeste',
+  },
+  RN: {
+    name: 'Rio Grande do Norte',
+    region: 'nordeste',
+  },
+  RS: {
+    name: 'Rio Grande do Sul',
+    region: 'sul',
+  },
+  RO: {
+    name: 'Rondônia',
+    region: 'norte',
+  },
+  RR: {
+    name: 'Roraima',
+    region: 'norte',
+  },
+  SC: {
+    name: 'Santa Catarina',
+    region: 'sul',
+  },
+  SP: {
+    name: 'São Paulo',
+    region: 'sudeste',
+  },
+  SE: {
+    name: 'Sergipe',
+    region: 'nordeste',
+  },
+  TO: {
+    name: 'Tocantins',
+    region: 'norte',
+  },
+  Brazil: {
+    name: 'Brasil',
+  },
 };
 
 export const getLastTimestamp = (data) => data?.[data?.length - 1][1];
 
-export const getLastRtValue = (data = {}, id = '') =>
-  data?.[id]?.[data[id].length - 1]?.y.toFixed(2);
+export const getLastRtValueById = (data = {}, id = '') =>
+  data?.[id]?.[data[id].length - 1]?.rt.toFixed(2);
 
-export const formatListData = (data) => {
-  return data?.reduce((current, next) => {
-    const [id, x, y, low, high, newCases, smoothedCases] = next;
-    const date = dateObjectBuider(x);
-
-    return {
-      ...current,
-      [id]: (current[id] || []).concat({
-        id,
-        state: id,
-        date,
-        x: date,
-        y,
-        low,
-        high,
-        newCases,
-        smoothedCases,
-      }),
-    };
-  }, {});
-};
-
-export const formatNewCasesData = (data) => {
-  return data?.reduce((current, next) => {
-    const [id, x, rt, low, high, newCases, smoothedCases] = next;
-    const date = dateObjectBuider(x);
-
-    return {
-      ...current,
-      [id]: (current[id] || []).concat({
-        id,
-        state: id,
-        date,
-        x: date,
-        rt,
-        low,
-        high,
-        y: newCases,
-        smoothedCases,
-      }),
-    };
-  }, {});
-};
-
-export const formatSmoothedCasesData = (data) => {
-  return data?.reduce((current, next) => {
-    const [id, x, rt, low, high, newCases, smoothedCases] = next;
-    const date = dateObjectBuider(x);
-
-    return {
-      ...current,
-      [id]: (current[id] || []).concat({
-        id,
-        state: id,
-        date,
-        x: date,
-        rt,
-        low,
-        high,
-        newCases,
-        y: smoothedCases,
-      }),
-    };
-  }, {});
-};
-
-export const formatNewDeathsData = (data) => {
+export const formatStoreData = (data) => {
   return data?.reduce((current, next) => {
     const [
       id,
-      x,
+      date,
       rt,
       low,
       high,
@@ -115,64 +132,47 @@ export const formatNewDeathsData = (data) => {
       newDeaths,
       smoothedDeaths,
     ] = next;
-    const date = dateObjectBuider(x);
 
     return {
       ...current,
       [id]: (current[id] || []).concat({
-        id,
-        state: id,
         date,
-        x: date,
-        rt,
-        low,
         high,
-        newCases,
-        smoothedCases,
-        y: newDeaths,
-        smoothedDeaths,
-      }),
-    };
-  }, {});
-};
-
-export const formatSmoothedDeathsData = (data) => {
-  return data?.reduce((current, next) => {
-    const [
-      id,
-      x,
-      rt,
-      low,
-      high,
-      newCases,
-      smoothedCases,
-      newDeaths,
-      smoothedDeaths,
-    ] = next;
-    const date = dateObjectBuider(x);
-
-    return {
-      ...current,
-      [id]: (current[id] || []).concat({
         id,
-        state: id,
-        date,
-        x: date,
-        rt,
         low,
-        high,
         newCases,
-        smoothedCases,
         newDeaths,
-        y: smoothedDeaths,
+        smoothedCases,
+        smoothedDeaths,
+        region: BRAZIL_STATES[id].region || null,
+        rt,
+        state: BRAZIL_STATES[id].name,
       }),
     };
   }, {});
 };
 
-export const formatBarChartData = (data) => {
-  const formattedData = formatListData(data) || {};
-  return Object.keys(formattedData)?.map(
-    (k) => formattedData[k][formattedData[k].length - 1]
-  );
-};
+export const formatRtData = (data = []) =>
+  data?.map((v) => ({ ...v, x: dateObjectBuider(v.date), y: v.rt }));
+
+export const formatNewCasesData = (data = []) =>
+  data?.map((v) => ({ ...v, x: dateObjectBuider(v.date), y: v.newCases }));
+
+export const formatSmoothedCasesData = (data = []) =>
+  data?.map((v) => ({ ...v, x: dateObjectBuider(v.date), y: v.smoothedCases }));
+
+export const formatNewDeathsData = (data = []) =>
+  data?.map((v) => ({ ...v, x: dateObjectBuider(v.date), y: v.newDeaths }));
+
+export const formatSmoothedDeathsData = (data = []) =>
+  data?.map((v) => ({
+    ...v,
+    x: dateObjectBuider(v.date),
+    y: v.smoothedDeaths,
+  }));
+
+export const getAllLastRt = (data) =>
+  Object.keys(data)?.map((k) => {
+    const formatted = formatRtData(data[k]);
+    return formatted[formatted.length - 1];
+  });
