@@ -177,7 +177,7 @@ const Footer = () => {
           </em>{' '}
           {`>`} 1. Dada a gravidade da situação, decidimos manter o viés
           conservador, para que tomemos decisões com base em evidências
-          numerosas e sólidas. (editado)
+          numerosas e sólidas.
         </Typography>
       </div>
       <div className={classes.section}>
