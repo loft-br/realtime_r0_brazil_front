@@ -127,7 +127,7 @@ const Line = ({ data: content }) => {
         type: 'linear',
         stacked: false,
         min: 0,
-        max: 4,
+        max: 3,
       }}
       axisLeft={{
         format: (d) => d.toFixed(1),

@@ -5,7 +5,7 @@ const RiskBar = ({ data }) => (
   <ResponsiveBar
     data={data}
     keys={['y']}
-    maxValue={4}
+    maxValue={3}
     padding={0.6}
     margin={{
       top: 10,
