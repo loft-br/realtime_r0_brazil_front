@@ -10,7 +10,7 @@ import {
 import LineLayer from 'components/charts/LineLayer';
 import TooltipScatter from './TooltipScatter';
 
-const Nodes = ({ node, x, y, size, color, blendMode }) => {
+const Nodes = ({ node, x, y, size, blendMode }) => {
   const currentColor = node.data?.rt < 1 ? '#19857b' : '#E17272';
 
   return (
@@ -18,7 +18,7 @@ const Nodes = ({ node, x, y, size, color, blendMode }) => {
       <circle
         r={size / 2}
         fill={currentColor}
-        style={{ mixBlendMode: blendMode, fill: `${currentColor}` }}
+        style={{ mixBlendMode: blendMode }}
       />
     </g>
   );
