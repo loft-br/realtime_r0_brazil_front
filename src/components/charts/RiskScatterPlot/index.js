@@ -10,6 +10,20 @@ import {
 import LineLayer from 'components/charts/LineLayer';
 import TooltipScatter from './TooltipScatter';
 
+const Nodes = ({ node, x, y, size, blendMode }) => {
+  const currentColor = node.data?.rt < 1 ? '#19857b' : '#E17272';
+
+  return (
+    <g transform={`translate(${x},${y})`}>
+      <circle
+        r={size / 2}
+        fill={currentColor}
+        style={{ mixBlendMode: blendMode }}
+      />
+    </g>
+  );
+};
+
 const commonProps = {
   width: 300,
   height: 200,
@@ -34,7 +48,6 @@ const commonProps = {
     tickRotation: 0,
     format: (d) => d.toFixed(1),
   },
-  colors: '#E17272',
   layers: [
     AreaLayerPositive,
     AreaLayerNegative,
@@ -46,6 +59,7 @@ const commonProps = {
   ],
   useMesh: true,
   xFormat: formatDate,
+  renderNode: Nodes,
 };
 
 const RiskScatterPlot = ({ data }) => (

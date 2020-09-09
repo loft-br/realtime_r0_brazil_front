@@ -6,7 +6,7 @@ import TooltipCaseLine from './TooltipCaseLine';
 const commonProps = {
   width: 300,
   height: 200,
-  margin: { top: 10, right: 30, bottom: 10, left: 10 },
+  margin: { top: 10, right: 40, bottom: 10, left: 10 },
   animate: true,
   enableGridX: false,
   axisBottom: null,
