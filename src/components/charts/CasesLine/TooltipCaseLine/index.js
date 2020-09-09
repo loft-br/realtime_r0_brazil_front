@@ -7,7 +7,7 @@ import useStyles from './TooltipCaseLine.styles';
 
 const TooltipCaseLine = ({ data = {} }) => {
   const classes = useStyles();
-  const daysAvg = 7;
+  const daysAvg = 14;
 
   return (
     <Paper variant="outlined" elevation={3} className={classes.root}>
