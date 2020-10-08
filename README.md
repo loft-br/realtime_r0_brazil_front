@@ -2,12 +2,15 @@
 
 # Loft Science
 
-Frontend do projeto [Loft Science](https://loft.science).
-Backend no repositório [https://github.com/loft-br/realtime_r0_brazil](https://github.com/loft-br/realtime_r0_brazil).
+This repository contains the Frontend for the [Loft Science](https://loft.science) project.
+The backend can be found at [https://github.com/loft-br/realtime_r0_brazil](https://github.com/loft-br/realtime_r0_brazil).
 
-## Como utilizar
-- git clone https://github.com/loft-br/realtime_r0_brazil_front.git
-- yarn
-- yarn start
+## Installation
 
-Após clonar o [backend desse projeto](https://github.com/loft-br/realtime_r0_brazil), modifique o valor de **baseURL** em **src/utils/api.js** para o seu servidor.
+```bash
+git clone https://github.com/loft-br/realtime_r0_brazil_front.git
+yarn
+yarn start
+```
+
+After cloning the [backend of this project] (https://github.com/loft-br/realtime_r0_brazil), you must modify the value of **baseURL** in **src/utils/api.js** to point to your server url.
