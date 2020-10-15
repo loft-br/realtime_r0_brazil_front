@@ -50,7 +50,7 @@ export const BRAZIL_STATES = {
     region: 'centro oeste',
   },
   MG: {
-    name: 'Rio de Janeiro',
+    name: 'Minas Gerais',
     region: 'sudeste',
   },
   PA: {
