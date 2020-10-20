@@ -1,11 +1,11 @@
 {
   "name": "covid-19-br",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "license": "MIT",
   "repository": {
 		"type": "git",
-		"url": "git@github.com:thiagokpelo/loft-science.git"
+		"url": "git@github.com:loft-br/realtime_r0_brazil_front.git"
 	},
   "author": "@loft-br",
   "dependencies": {
