@@ -15,4 +15,4 @@ yarn
 yarn start
 ```
 
-After cloning the [backend of this project] (https://github.com/loft-br/realtime_r0_brazil), you must modify the value of **baseURL** in **src/utils/api.js** to point to your server url.
+After cloning the [backend of this project](https://github.com/loft-br/realtime_r0_brazil), you must modify the value of **baseURL** in **src/utils/api.js** to point to your server url.
