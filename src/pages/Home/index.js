@@ -74,20 +74,6 @@ const Home = () => {
           {canRender(states) ? <Line data={states} /> : <Loader />}
         </div>
       </Section>
-      {/*<Section*/}
-      {/*  title="<em>R<sub>t</sub></em> em tempo real por UF"*/}
-      {/*  description="Nosso modelo produz uma estimativa de <em>R<sub>t</sub></em> para cada um dos estados brasileiros, com um intervalo crível de 90% de probabilidade. Nos gráficos a seguir, mostramos a estimativa para cada estado. No eixo vertical temos a estimativa de <em>R<sub>t</sub></em> ao longo do tempo. Os pontos são as estimativas, enquanto a sombra significa todos os possíveis valores de <em>R<sub>t</sub></em> em determinada data (intervalo crível). Somente se o <em>R<sub>t</sub></em> for menor do que 1, a epidemia irá diminuir de tamanho até ser eliminada."*/}
-      {/*>*/}
-      {/*  <Grid*/}
-      {/*    container*/}
-      {/*    direction="column"*/}
-      {/*    alignItems="center"*/}
-      {/*    justify="center"*/}
-      {/*    spacing={4}*/}
-      {/*  >*/}
-      {/*    {canRender(states) ? <RiskList data={states} /> : <Loader />}*/}
-      {/*  </Grid>*/}
-      {/*</Section>*/}
     </>
   );
 };
