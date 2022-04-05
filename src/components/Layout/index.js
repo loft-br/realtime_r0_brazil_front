@@ -21,9 +21,6 @@ const Layout = ({ children }) => {
           </em>{' '}
           do COVID-19 por estado no Brasil
         </Typography>
-        <Typography variant="h6" color="primary">
-          Atualizado diariamente.
-        </Typography>
         <Typography variant="h6">
           Dados até: <strong>{formattedDate}</strong>
         </Typography>
